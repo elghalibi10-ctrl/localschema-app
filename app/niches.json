@@ -7,7 +7,17 @@
     "placeholderName": "Elite City Plumbing",
     "seoParagraph": "Plumbing businesses face fierce local competition, making local SEO critical for survival. By implementing specific Plumber schema markup, you directly feed Google vital details about your service areas, emergency availability, and pricing. This targeted structured data drastically increases your chances of triggering the coveted Google Map Pack when customers search for 'plumber near me'.",
     "faqAnswer": "While generic LocalBusiness schema is okay, using the specific 'Plumber' schema tells search engines exactly what you do. It unlocks specialized rich snippet opportunities and sends a much stronger relevance signal to Google's local algorithm compared to a broad, unspecific category.",
-    "exampleCodeSnippet": "{\n  \"@type\": \"Plumber\",\n  \"priceRange\": \"$$\",\n  \"hasMap\": \"https://maps.google.com/...\",\n  \"openingHours\": \"Mo-Su 00:00-23:59\"\n}"
+    "exampleCodeSnippet": "{\n  \"@type\": \"Plumber\",\n  \"priceRange\": \"$$\",\n  \"hasMap\": \"https://maps.google.com/...\",\n  \"openingHours\": \"Mo-Su 00:00-23:59\"\n}",
+    "semanticRelatedIds": [
+      "hvac",
+      "electrician",
+      "roofing_contractor",
+      "handyman",
+      "pest_control"
+    ],
+    "gbpCategories": "Plumber, Emergency Plumbing Service, Drainage Service",
+    "mapPackTips": "Emergency availability is the single biggest competitive advantage in plumbing Map Pack — make sure your openingHours schema declares 24/7 availability if you offer it, because Google actively surfaces emergency-ready businesses at the top of urgent searches like 'plumber near me open now'. Use the areaServed property to explicitly list every city and suburb you cover, since most plumbing searches are hyper-local and Google matches the searcher's exact city to this field when choosing which businesses to show in the 3-Pack. Finally, ensure your Plumber schema's telephone number matches the primary phone on your Google Business Profile character-for-character — citation inconsistency is the most common reason a plumbing business drops out of the Map Pack despite having strong reviews and proximity.",
+    "metaDescription": "Free Plumber schema generator. Build valid JSON-LD with service areas, emergency hours, and NAP data to rank in the Google Map Pack."
   },
   {
     "id": "hvac",
@@ -17,7 +27,17 @@
     "placeholderName": "Cool Breeze HVAC",
     "seoParagraph": "HVAC companies rely heavily on highly localized emergency searches. Utilizing the precise HVACBusiness schema allows you to communicate your specialized cooling and heating services directly to search crawlers. This advanced structured data ensures your business stands out in local search results when homeowners desperately need AC repair or heating installation.",
     "faqAnswer": "Google's algorithm prioritizes specificity. By utilizing 'HVACBusiness' instead of 'LocalBusiness', you unambiguously categorize your services. This precise categorization helps Google confidently match your business with high-intent queries like 'AC repair' or 'furnace installation', improving your local ranking.",
-    "exampleCodeSnippet": "{\n  \"@type\": \"HVACBusiness\",\n  \"areaServed\": \"Dallas\",\n  \"makesOffer\": {\n    \"@type\": \"Offer\",\n    \"name\": \"AC Installation\"\n  }\n}"
+    "exampleCodeSnippet": "{\n  \"@type\": \"HVACBusiness\",\n  \"areaServed\": \"Dallas\",\n  \"makesOffer\": {\n    \"@type\": \"Offer\",\n    \"name\": \"AC Installation\"\n  }\n}",
+    "semanticRelatedIds": [
+      "plumber",
+      "electrician",
+      "roofing_contractor",
+      "handyman",
+      "painter"
+    ],
+    "gbpCategories": "HVAC Contractor, Air Conditioning Contractor, Heating Contractor",
+    "mapPackTips": "HVAC searches spike dramatically during weather events, so having fully validated HVACBusiness schema live before the summer AC season or winter furnace season is essential — Google rewards businesses with complete, error-free structured data during high-demand periods when competition for the 3-Pack intensifies overnight. Include the makesOffer property in your schema to explicitly list services like 'AC Installation', 'Furnace Repair', and 'Heat Pump Service', since these keyword-specific signals reinforce Google's understanding of your service scope beyond your business name alone. Pairing your HVACBusiness schema with a Google Business Profile that lists matching service areas — using the same city names in both your GBP and your areaServed JSON-LD array — creates a data consistency signal that is a proven and measurable Map Pack ranking accelerator.",
+    "metaDescription": "Free HVAC schema generator. Create HVACBusiness JSON-LD in seconds — boost Google Map Pack rankings for AC repair, furnace installation, and heating searches."
   },
   {
     "id": "electrician",
@@ -27,7 +47,17 @@
     "placeholderName": "Volt Electrical Experts",
     "seoParagraph": "When electrical emergencies strike, customers don't scroll past the top three map results. Electrician schema markup is a powerful SEO strategy that structures your NAP (Name, Address, Phone) data perfectly for search engines. This code ensures Google fully understands your specialized electrical services, boosting your local visibility and driving more inbound calls.",
     "faqAnswer": "The 'Electrician' schema type is specifically recognized by schema.org to classify electrical contractors. Using it instead of a generic tag prevents ambiguity, ensuring Google instantly recognizes your exact trade and ranks you higher for specialized electrical search queries.",
-    "exampleCodeSnippet": "{\n  \"@type\": \"Electrician\",\n  \"name\": \"Volt Experts\",\n  \"telephone\": \"+1-555-0199\",\n  \"priceRange\": \"$$$\"\n}"
+    "exampleCodeSnippet": "{\n  \"@type\": \"Electrician\",\n  \"name\": \"Volt Experts\",\n  \"telephone\": \"+1-555-0199\",\n  \"priceRange\": \"$$$\"\n}",
+    "semanticRelatedIds": [
+      "plumber",
+      "hvac",
+      "roofing_contractor",
+      "handyman",
+      "landscaper"
+    ],
+    "gbpCategories": "Electrician, Electrical Installation Service, Emergency Electrician Service",
+    "mapPackTips": "Electrical emergencies generate some of the highest-urgency local searches on Google, meaning the 3-Pack is winner-take-all — a business not visible at the exact moment of search loses that lead permanently with no second chance. Use your Electrician schema's openingHours field to declare any after-hours or 24/7 emergency availability, since Google specifically surfaces businesses with extended hours during off-peak times when the searcher's intent is most urgent and conversion rates are highest. Adding a verified contractor license number via the hasCredential property communicates a critical trust signal to both Google's algorithm and the customer, directly differentiating licensed contractors from unlicensed competitors in a category where credentials are a primary purchase decision factor.",
+    "metaDescription": "Free Electrician schema generator. Valid JSON-LD for electrical contractors — declare emergency availability and service areas to dominate the Google Map Pack."
   },
   {
     "id": "dentist",
@@ -37,7 +67,17 @@
     "placeholderName": "Smile Family Dentistry",
     "seoParagraph": "Dental practices operate in one of the most competitive local search environments. Adding Dentist schema to your website allows you to highlight accepted insurance networks, medical specialties, and patient reviews directly in the search results. This semantic markup establishes high trust with both Google and prospective patients, significantly improving your Map Pack presence.",
     "faqAnswer": "Medical queries trigger strict 'Your Money or Your Life' (YMYL) algorithms. Using the specialized 'Dentist' schema (and potentially 'MedicalClinic') allows you to define medical specialties, accepted health insurance, and provider credentials—features entirely missing from a generic LocalBusiness tag.",
-    "exampleCodeSnippet": "{\n  \"@type\": \"Dentist\",\n  \"medicalSpecialty\": \"https://schema.org/Dental\",\n  \"acceptsReservations\": \"True\",\n  \"availableService\": {\n    \"@type\": \"MedicalTest\",\n    \"name\": \"Teeth Cleaning\"\n  }\n}"
+    "exampleCodeSnippet": "{\n  \"@type\": \"Dentist\",\n  \"medicalSpecialty\": \"https://schema.org/Dental\",\n  \"acceptsReservations\": \"True\",\n  \"availableService\": {\n    \"@type\": \"MedicalTest\",\n    \"name\": \"Teeth Cleaning\"\n  }\n}",
+    "semanticRelatedIds": [
+      "lawyer",
+      "accountant",
+      "veterinarian",
+      "massage",
+      "spa"
+    ],
+    "gbpCategories": "Dentist, Dental Clinic, Cosmetic Dentist",
+    "mapPackTips": "Dental Map Pack rankings are directly tied to review velocity — practices appearing in the local 3-Pack consistently have more recent Google reviews than competitors, and populating your Dentist schema's aggregateRating property allows you to feed this credibility data directly to Google's local algorithm. Add your dental specialties using the medicalSpecialty property (Orthodontics, Cosmetic Dentistry, Endodontics, Pediatric Dentistry) to capture niche, high-intent searches like 'orthodontist near me' or 'kids dentist open Saturday' that a generic LocalBusiness tag misses entirely. Ensuring your schema's address data precisely matches your Google Business Profile is especially critical for dental practices in multi-tenant medical buildings, where Google can conflate multiple practices at the same street address — schema specificity with a unique suite number resolves this Map Pack ambiguity directly.",
+    "metaDescription": "Free Dentist schema generator. Build valid JSON-LD for dental practices — declare specialties, accepted insurance, and reviews to win the Google Map Pack."
   },
   {
     "id": "lawyer",
@@ -47,7 +87,17 @@
     "placeholderName": "Justice Legal Group",
     "seoParagraph": "For law firms, acquiring a single local client can mean thousands of dollars in revenue. LegalService schema is essential for helping search engines distinguish your exact practice areas (e.g., personal injury, family law) from other local businesses. Injecting this structured data ensures your firm displays prominently when local users search for legal representation.",
     "faqAnswer": "The 'LegalService' schema type provides critical context to search engines about your specific profession. It helps Google map your firm to localized legal queries, separating you from generic businesses and establishing the necessary YMYL (Your Money or Your Life) authority required to rank for legal search terms.",
-    "exampleCodeSnippet": "{\n  \"@type\": \"LegalService\",\n  \"name\": \"Smith & Co Lawyers\",\n  \"areaServed\": \"Chicago\",\n  \"priceRange\": \"$$$$\"\n}"
+    "exampleCodeSnippet": "{\n  \"@type\": \"LegalService\",\n  \"name\": \"Smith & Co Lawyers\",\n  \"areaServed\": \"Chicago\",\n  \"priceRange\": \"$$$$\"\n}",
+    "semanticRelatedIds": [
+      "accountant",
+      "real_estate_agent",
+      "architect",
+      "surveyor",
+      "dentist"
+    ],
+    "gbpCategories": "Law Firm, Legal Services, Attorney",
+    "mapPackTips": "Law firm Map Pack competition is among the highest of any local business category — cost-per-click on Google Ads for legal terms routinely exceeds $100, making organic 3-Pack visibility worth tens of thousands of dollars per month in equivalent ad spend. Use the hasOfferCatalog property in your LegalService schema to list your exact practice areas (Personal Injury, Family Law, DUI Defense, Estate Planning), since these keywords are the primary match signals Google uses to surface specific firms for specialized legal queries rather than generic 'lawyer near me' searches. Because legal searches are a core YMYL category, Google weighs entity authority heavily — include the sameAs property linking to your state bar profile and Avvo or Martindale listing to give Google verifiable, third-party confirmation of your credentials and dramatically strengthen your local ranking signals.",
+    "metaDescription": "Free Law Firm schema generator. Create LegalService JSON-LD for any practice area. Establish YMYL authority and rank in the Map Pack for local legal searches."
   },
   {
     "id": "roofing_contractor",
@@ -57,7 +107,17 @@
     "placeholderName": "Apex Roofing",
     "seoParagraph": "Roofing is a high-ticket local service where trust and proximity are everything. By injecting RoofingContractor schema into your site, you feed Google exact coordinates, service radii, and verified business hours. This specialized JSON-LD code is the secret weapon for dominating the local 3-pack and capturing high-value roof replacement leads in your area.",
     "faqAnswer": "A generic 'LocalBusiness' tag forces Google to guess what your business actually does based on your website text. The 'RoofingContractor' schema removes all guesswork, explicitly declaring your trade. This direct communication results in much higher relevance scores for queries like 'roofers near me'.",
-    "exampleCodeSnippet": "{\n  \"@type\": \"RoofingContractor\",\n  \"description\": \"Residential and commercial roof replacements.\",\n  \"priceRange\": \"$$$\",\n  \"telephone\": \"+1-555-0100\"\n}"
+    "exampleCodeSnippet": "{\n  \"@type\": \"RoofingContractor\",\n  \"description\": \"Residential and commercial roof replacements.\",\n  \"priceRange\": \"$$$\",\n  \"telephone\": \"+1-555-0100\"\n}",
+    "semanticRelatedIds": [
+      "plumber",
+      "hvac",
+      "electrician",
+      "handyman",
+      "painter"
+    ],
+    "gbpCategories": "Roofing Contractor, Gutter Cleaning Service, Roofing Supply Store",
+    "mapPackTips": "Roofing is a post-disaster high-urgency search category — after hailstorms, high winds, or heavy snowfall, local search volume for roofing contractors can spike hundreds of percent overnight, and only Map Pack businesses capture that demand surge in real time. Include a detailed areaServed array in your RoofingContractor schema listing every city, suburb, and county you serve, because most roofing jobs are won or lost within a 30-mile radius and suburb-specific searches like 'roofer in [city]' require explicit geographic schema signals to match. Because roofing is a high-ticket, high-trust service, adding the aggregateRating property to surface your review score in structured data — paired with an active post-job review request strategy — is the single highest-ROI schema addition a roofing contractor can make for local ranking.",
+    "metaDescription": "Free Roofing Contractor schema generator. Build valid RoofingContractor JSON-LD — declare service radius and review data to rank in the Google Map Pack."
   },
   {
     "id": "real_estate_agent",
@@ -67,7 +127,17 @@
     "placeholderName": "Premier Realty",
     "seoParagraph": "In the hyper-competitive real estate market, visibility is your biggest asset. RealEstateAgent schema markup helps Google connect your website with active homebuyers and sellers in your specific geographic territory. By structuring your agency's data, you make it incredibly easy for search engines to showcase your contact info, location, and listings in rich search results.",
     "faqAnswer": "Real estate searches are heavily location-based. The 'RealEstateAgent' schema is specifically designed to highlight real estate professionals, allowing you to associate your profile with specific neighborhoods, property types, and professional real estate networks, giving you an edge over generic businesses.",
-    "exampleCodeSnippet": "{\n  \"@type\": \"RealEstateAgent\",\n  \"name\": \"Jane Doe Properties\",\n  \"address\": {\n    \"@type\": \"PostalAddress\",\n    \"addressLocality\": \"Miami\"\n  }\n}"
+    "exampleCodeSnippet": "{\n  \"@type\": \"RealEstateAgent\",\n  \"name\": \"Jane Doe Properties\",\n  \"address\": {\n    \"@type\": \"PostalAddress\",\n    \"addressLocality\": \"Miami\"\n  }\n}",
+    "semanticRelatedIds": [
+      "lawyer",
+      "accountant",
+      "architect",
+      "surveyor",
+      "moving_company"
+    ],
+    "gbpCategories": "Real Estate Agency, Real Estate Agent, Real Estate Consultant",
+    "mapPackTips": "Real estate agent Map Pack rankings are dominated by agencies with a fully optimized Google Business Profile across every available category — pair this with RealEstateAgent schema that includes the geo property to precisely define your primary service territory and eliminate ambiguity about where you operate. Unlike most local businesses, real estate agents benefit enormously from an expanded areaServed field: listing 15–20 individual neighborhoods and suburbs closely mirrors how buyers and sellers phrase their searches, so 'real estate agent in [neighborhood]' queries match your schema directly rather than relying on Google to infer geography. Because real estate is a YMYL category, include the memberOf property to link your schema to your MLS association profile, NAR membership page, or state licensing board — these verifiable entity-level authority signals directly influence Google's confidence in surfacing your listing over unlicensed competitors.",
+    "metaDescription": "Free Real Estate Agent schema generator. Create RealEstateAgent JSON-LD — target specific neighborhoods and service areas to dominate local property searches."
   },
   {
     "id": "accountant",
@@ -77,7 +147,17 @@
     "placeholderName": "Precision CPA Group",
     "seoParagraph": "Trust is the ultimate currency for financial professionals. Adding AccountingService schema to your website verifies your firm's identity, location, and professional standing with search engines. This accurate, structured JSON-LD format is a vital signal that helps push your accounting firm to the top of Google Maps during tax season.",
     "faqAnswer": "Financial queries are strictly scrutinized by Google's YMYL algorithms. Using the 'AccountingService' schema firmly establishes your professional entity, signaling to Google that you are a legitimate financial institution rather than an unverified generic local business.",
-    "exampleCodeSnippet": "{\n  \"@type\": \"AccountingService\",\n  \"name\": \"Precision CPA Group\",\n  \"openingHours\": \"Mo-Fr 09:00-17:00\",\n  \"priceRange\": \"$$\"\n}"
+    "exampleCodeSnippet": "{\n  \"@type\": \"AccountingService\",\n  \"name\": \"Precision CPA Group\",\n  \"openingHours\": \"Mo-Fr 09:00-17:00\",\n  \"priceRange\": \"$$\"\n}",
+    "semanticRelatedIds": [
+      "lawyer",
+      "real_estate_agent",
+      "it_support",
+      "web_design",
+      "surveyor"
+    ],
+    "gbpCategories": "Accounting Firm, Tax Preparation Service, Financial Planner",
+    "mapPackTips": "Tax season creates massive, predictable search volume spikes from January through April — ensure your AccountingService schema is fully validated and submitted before December so Google's indexing has sufficient time to process and reward the structured data before the highest-competition period of the year begins. Use the hasOfferCatalog property to enumerate specific services like 'Tax Preparation', 'Small Business Bookkeeping', 'Payroll Services', and 'IRS Audit Representation', so Google can match your firm to high-intent, service-specific searches that go far beyond the generic 'accountant near me' query type. Because accountants handle sensitive financial data, YMYL trust signals are weighted heavily in Google's local ranking algorithm — include sameAs links pointing to your CPA license page, AICPA profile, and LinkedIn to give Google multiple independent sources confirming your professional entity.",
+    "metaDescription": "Free Accountant schema generator. Build AccountingService JSON-LD — declare CPA services and service area to rank in the Google Map Pack during tax season."
   },
   {
     "id": "restaurant",
@@ -87,7 +167,17 @@
     "placeholderName": "The Rustic Fork",
     "seoParagraph": "For restaurants, local search visibility directly translates to foot traffic and reservations. Restaurant schema markup is incredibly powerful, allowing you to embed your menu URL, cuisine type, reservations link, and price range directly into the code. This comprehensive structured data is what generates mouth-watering rich snippets and dominant Map Pack placements.",
     "faqAnswer": "Unlike generic businesses, restaurants have unique data points that diners care about. The 'Restaurant' schema enables properties like 'servesCuisine', 'menu', and 'acceptsReservations'. Supplying this specific data allows Google to feature your restaurant in specialized food carousels and maps filters.",
-    "exampleCodeSnippet": "{\n  \"@type\": \"Restaurant\",\n  \"servesCuisine\": \"Italian\",\n  \"hasMenu\": \"https://example.com/menu\",\n  \"acceptsReservations\": \"True\"\n}"
+    "exampleCodeSnippet": "{\n  \"@type\": \"Restaurant\",\n  \"servesCuisine\": \"Italian\",\n  \"hasMenu\": \"https://example.com/menu\",\n  \"acceptsReservations\": \"True\"\n}",
+    "semanticRelatedIds": [
+      "bakery",
+      "cafe",
+      "catering",
+      "brewery",
+      "ice_cream"
+    ],
+    "gbpCategories": "Restaurant, Family Restaurant, American Restaurant",
+    "mapPackTips": "Restaurant Map Pack rankings are uniquely multidimensional — Google surfaces restaurants based on cuisine type, price range, and dining occasion in addition to proximity, making the servesCuisine, priceRange, and hasMenu schema properties among the most influential fields you can populate to capture filtered search traffic. Set your openingHoursSpecification with maximum precision, including holiday hours and separate lunch vs. dinner service windows, as Google uses this to surface restaurants in real-time 'open now' searches — one of the highest-converting query types in all of local search. Activating reservation or ordering capabilities through your schema's potentialAction property links your structured data directly to transaction intent, pushing your restaurant to the top of filtered searches for 'restaurants with online ordering near me' where conversion intent is at its absolute peak.",
+    "metaDescription": "Free Restaurant schema generator. Create JSON-LD with cuisine type, menu URL, and hours — structured data Google needs to rank your restaurant locally."
   },
   {
     "id": "cleaning_service",
@@ -97,384 +187,16 @@
     "placeholderName": "Sparkle Clean Maids",
     "seoParagraph": "Whether you offer residential maid services or commercial janitorial work, local search is where your clients are looking. Implementing ProfessionalService schema tailored for cleaning businesses clearly defines your service area and operating hours to Google. This backend optimization is a proven way to outrank competitors and secure consistent local cleaning leads.",
     "faqAnswer": "While there isn't a dedicated 'CleaningService' tag in schema.org, utilizing 'ProfessionalService' is far superior to 'LocalBusiness'. It specifically categorizes you as a service provider, allowing you to accurately define your mobile service areas and specialized cleaning offerings for better local matching.",
-    "exampleCodeSnippet": "{\n  \"@type\": \"ProfessionalService\",\n  \"name\": \"Sparkle Clean Maids\",\n  \"areaServed\": \"Seattle\",\n  \"priceRange\": \"$$\"\n}"
-  },
-  {
-    "id": "locksmith",
-    "name": "Locksmith",
-    "schemaType": "Locksmith",
-    "icon": "🔑",
-    "placeholderName": "Quick Key Locksmith",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "painter",
-    "name": "Painter",
-    "schemaType": "HousePainter",
-    "icon": "🖌️",
-    "placeholderName": "Pro Coat Painters",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "pest_control",
-    "name": "Pest Control",
-    "schemaType": "ProfessionalService",
-    "icon": "🐜",
-    "placeholderName": "Bug Free Solutions",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "landscaper",
-    "name": "Landscaper",
-    "schemaType": "ProfessionalService",
-    "icon": "🌳",
-    "placeholderName": "Green Thumb Landscaping",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "moving_company",
-    "name": "Moving Company",
-    "schemaType": "MovingCompany",
-    "icon": "📦",
-    "placeholderName": "Swift Movers",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "handyman",
-    "name": "Handyman",
-    "schemaType": "ProfessionalService",
-    "icon": "🛠️",
-    "placeholderName": "Fix It All Handyman",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "auto_repair",
-    "name": "Auto Repair",
-    "schemaType": "AutoRepair",
-    "icon": "🚗",
-    "placeholderName": "City Auto Mechanics",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "car_wash",
-    "name": "Car Wash",
-    "schemaType": "AutoWash",
-    "icon": "🧼",
-    "placeholderName": "Sparkle Auto Wash",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "towing",
-    "name": "Towing Service",
-    "schemaType": "ProfessionalService",
-    "icon": "🚛",
-    "placeholderName": "Rapid Towing",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "hair_salon",
-    "name": "Hair Salon",
-    "schemaType": "HairSalon",
-    "icon": "✂️",
-    "placeholderName": "Style Studio",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "nail_salon",
-    "name": "Nail Salon",
-    "schemaType": "NailSalon",
-    "icon": "💅",
-    "placeholderName": "Perfect Polish",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "spa",
-    "name": "Spa",
-    "schemaType": "DaySpa",
-    "icon": "💆",
-    "placeholderName": "Serenity Spa",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "barber",
-    "name": "Barbershop",
-    "schemaType": "HairSalon",
-    "icon": "💈",
-    "placeholderName": "Classic Cuts Barber",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "gym",
-    "name": "Gym",
-    "schemaType": "HealthAndBeautyBusiness",
-    "icon": "🏋️",
-    "placeholderName": "Power Fitness",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "yoga_studio",
-    "name": "Yoga Studio",
-    "schemaType": "HealthAndBeautyBusiness",
-    "icon": "🧘",
-    "placeholderName": "Zen Yoga",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "massage",
-    "name": "Massage Therapy",
-    "schemaType": "HealthAndBeautyBusiness",
-    "icon": "💆‍♂️",
-    "placeholderName": "Healing Hands Massage",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "florist",
-    "name": "Florist",
-    "schemaType": "Florist",
-    "icon": "💐",
-    "placeholderName": "Bloom Floral Design",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "bakery",
-    "name": "Bakery",
-    "schemaType": "Bakery",
-    "icon": "🥖",
-    "placeholderName": "Sweet Treats Bakery",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "cafe",
-    "name": "Cafe",
-    "schemaType": "CafeOrCoffeeShop",
-    "icon": "☕",
-    "placeholderName": "Morning Brew Cafe",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "ice_cream",
-    "name": "Ice Cream Shop",
-    "schemaType": "IceCreamShop",
-    "icon": "🍦",
-    "placeholderName": "Scoops Ice Cream",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "brewery",
-    "name": "Brewery",
-    "schemaType": "Brewery",
-    "icon": "🍺",
-    "placeholderName": "Craft Hops Brewery",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "catering",
-    "name": "Catering",
-    "schemaType": "FoodEstablishment",
-    "icon": "🍲",
-    "placeholderName": "Gourmet Catering Co.",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "photographer",
-    "name": "Photographer",
-    "schemaType": "ProfessionalService",
-    "icon": "📷",
-    "placeholderName": "Focus Photography",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "dj",
-    "name": "DJ Service",
-    "schemaType": "ProfessionalService",
-    "icon": "🎧",
-    "placeholderName": "Groove Masters DJ",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "event_planner",
-    "name": "Event Planner",
-    "schemaType": "ProfessionalService",
-    "icon": "🎉",
-    "placeholderName": "Perfect Moments Events",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "videographer",
-    "name": "Videographer",
-    "schemaType": "ProfessionalService",
-    "icon": "🎥",
-    "placeholderName": "Cinematic Visions",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "architect",
-    "name": "Architect",
-    "schemaType": "ProfessionalService",
-    "icon": "📐",
-    "placeholderName": "Modern Designs Architecture",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "surveyor",
-    "name": "Surveyor",
-    "schemaType": "ProfessionalService",
-    "icon": "🧭",
-    "placeholderName": "Precision Surveying",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "veterinarian",
-    "name": "Veterinarian",
-    "schemaType": "VeterinaryCare",
-    "icon": "🐶",
-    "placeholderName": "Happy Paws Vet Clinic",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "pet_grooming",
-    "name": "Pet Grooming",
-    "schemaType": "AnimalShelter",
-    "icon": "🐩",
-    "placeholderName": "Fluffy Groomers",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "dog_walker",
-    "name": "Dog Walker",
-    "schemaType": "ProfessionalService",
-    "icon": "🐕",
-    "placeholderName": "City Paws Walking",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "daycare",
-    "name": "Daycare",
-    "schemaType": "ChildCare",
-    "icon": "🧸",
-    "placeholderName": "Little Steps Daycare",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "tutor",
-    "name": "Tutor",
-    "schemaType": "EducationalOrganization",
-    "icon": "📚",
-    "placeholderName": "A+ Tutoring Services",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "driving_school",
-    "name": "Driving School",
-    "schemaType": "EducationalOrganization",
-    "icon": "🚘",
-    "placeholderName": "Safe Start Driving",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "martial_arts",
-    "name": "Martial Arts",
-    "schemaType": "HealthAndBeautyBusiness",
-    "icon": "🥋",
-    "placeholderName": "Dragon Martial Arts",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "tailor",
-    "name": "Tailor",
-    "schemaType": "ProfessionalService",
-    "icon": "🧵",
-    "placeholderName": "Perfect Fit Alterations",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "shoe_repair",
-    "name": "Shoe Repair",
-    "schemaType": "ProfessionalService",
-    "icon": "👞",
-    "placeholderName": "Cobbler's Corner",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "dry_cleaner",
-    "name": "Dry Cleaner",
-    "schemaType": "DryCleaningOrLaundry",
-    "icon": "👔",
-    "placeholderName": "Crisp Cleaners",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "storage",
-    "name": "Self Storage",
-    "schemaType": "SelfStorage",
-    "icon": "🗄️",
-    "placeholderName": "Secure Space Storage",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "waste_management",
-    "name": "Waste Management",
-    "schemaType": "ProfessionalService",
-    "icon": "🗑️",
-    "placeholderName": "Eco Waste Solutions",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "web_design",
-    "name": "Web Design",
-    "schemaType": "ProfessionalService",
-    "icon": "💻",
-    "placeholderName": "Creative Web Studio",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
-  },
-  {
-    "id": "it_support",
-    "name": "IT Support",
-    "schemaType": "ProfessionalService",
-    "icon": "🖥️",
-    "placeholderName": "Tech Fix IT",
-    "seoParagraph": "Generate schema markup to boost local map rankings.",
-    "faqAnswer": "Using specific schema helps search engines understand your exact business category."
+    "exampleCodeSnippet": "{\n  \"@type\": \"ProfessionalService\",\n  \"name\": \"Sparkle Clean Maids\",\n  \"areaServed\": \"Seattle\",\n  \"priceRange\": \"$$\"\n}",
+    "semanticRelatedIds": [
+      "handyman",
+      "pest_control",
+      "landscaper",
+      "moving_company",
+      "waste_management"
+    ],
+    "gbpCategories": "House Cleaning Service, Janitorial Service, Commercial Cleaning Service",
+    "mapPackTips": "Cleaning services are primarily booked by searchers in the consideration phase rather than in an emergency, which means Map Pack visibility combined with a high star rating is the primary conversion driver — making your aggregateRating schema field disproportionately valuable compared to almost any other structured data property you can add. As a service area business that travels to clients, use the areaServed property to list every neighborhood and suburb you serve, because cleaning searches are frequently neighborhood-specific ('house cleaner in [suburb]') and you need explicit geographic schema signals to compete for these high-converting, low-competition local queries. Enable the SAB toggle when generating your schema to omit your residential or home-office address — Google explicitly requires service area businesses to hide their physical location on their Business Profile, and consistent, policy-compliant schema data eliminates the risk of a profile suspension that would remove you from the Map Pack entirely.",
+    "metaDescription": "Free Cleaning Service schema generator. Build ProfessionalService JSON-LD for cleaning businesses — declare service areas with no physical address required."
   }
 ]
