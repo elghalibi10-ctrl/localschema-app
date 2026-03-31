@@ -11,9 +11,9 @@
     "semanticRelatedIds": [
       "hvac",
       "electrician",
-      "roofing_contractor",
+      "roofing-contractor",
       "handyman",
-      "pest_control"
+      "pest-control"
     ],
     "gbpCategories": "Plumber, Emergency Plumbing Service, Drainage Service",
     "mapPackTips": "Emergency availability is the single biggest competitive advantage in plumbing Map Pack — make sure your openingHours schema declares 24/7 availability if you offer it, because Google actively surfaces emergency-ready businesses at the top of urgent searches like 'plumber near me open now'. Use the areaServed property to explicitly list every city and suburb you cover, since most plumbing searches are hyper-local and Google matches the searcher's exact city to this field when choosing which businesses to show in the 3-Pack. Finally, ensure your Plumber schema's telephone number matches the primary phone on your Google Business Profile character-for-character — citation inconsistency is the most common reason a plumbing business drops out of the Map Pack despite having strong reviews and proximity.",
@@ -31,7 +31,7 @@
     "semanticRelatedIds": [
       "plumber",
       "electrician",
-      "roofing_contractor",
+      "roofing-contractor",
       "handyman",
       "painter"
     ],
@@ -51,7 +51,7 @@
     "semanticRelatedIds": [
       "plumber",
       "hvac",
-      "roofing_contractor",
+      "roofing-contractor",
       "handyman",
       "landscaper"
     ],
@@ -90,7 +90,7 @@
     "exampleCodeSnippet": "{\n  \"@type\": \"LegalService\",\n  \"name\": \"Smith & Co Lawyers\",\n  \"areaServed\": \"Chicago\",\n  \"priceRange\": \"$$$$\"\n}",
     "semanticRelatedIds": [
       "accountant",
-      "real_estate_agent",
+      "real-estate-agent",
       "architect",
       "surveyor",
       "dentist"
@@ -100,7 +100,7 @@
     "metaDescription": "Free Law Firm schema generator. Create LegalService JSON-LD for any practice area. Establish YMYL authority and rank in the Map Pack for local legal searches."
   },
   {
-    "id": "roofing_contractor",
+    "id": "roofing-contractor",
     "name": "Roofing Contractor",
     "schemaType": "RoofingContractor",
     "icon": "🏠",
@@ -120,7 +120,7 @@
     "metaDescription": "Free Roofing Contractor schema generator. Build valid RoofingContractor JSON-LD — declare service radius and review data to rank in the Google Map Pack."
   },
   {
-    "id": "real_estate_agent",
+    "id": "real-estate-agent",
     "name": "Real Estate Agent",
     "schemaType": "RealEstateAgent",
     "icon": "🏡",
@@ -133,7 +133,7 @@
       "accountant",
       "architect",
       "surveyor",
-      "moving_company"
+      "moving-company"
     ],
     "gbpCategories": "Real Estate Agency, Real Estate Agent, Real Estate Consultant",
     "mapPackTips": "Real estate agent Map Pack rankings are dominated by agencies with a fully optimized Google Business Profile across every available category — pair this with RealEstateAgent schema that includes the geo property to precisely define your primary service territory and eliminate ambiguity about where you operate. Unlike most local businesses, real estate agents benefit enormously from an expanded areaServed field: listing 15–20 individual neighborhoods and suburbs closely mirrors how buyers and sellers phrase their searches, so 'real estate agent in [neighborhood]' queries match your schema directly rather than relying on Google to infer geography. Because real estate is a YMYL category, include the memberOf property to link your schema to your MLS association profile, NAR membership page, or state licensing board — these verifiable entity-level authority signals directly influence Google's confidence in surfacing your listing over unlicensed competitors.",
@@ -150,9 +150,9 @@
     "exampleCodeSnippet": "{\n  \"@type\": \"AccountingService\",\n  \"name\": \"Precision CPA Group\",\n  \"openingHours\": \"Mo-Fr 09:00-17:00\",\n  \"priceRange\": \"$$\"\n}",
     "semanticRelatedIds": [
       "lawyer",
-      "real_estate_agent",
-      "it_support",
-      "web_design",
+      "real-estate-agent",
+      "it-support",
+      "web-design",
       "surveyor"
     ],
     "gbpCategories": "Accounting Firm, Tax Preparation Service, Financial Planner",
@@ -173,14 +173,14 @@
       "cafe",
       "catering",
       "brewery",
-      "ice_cream"
+      "ice-cream"
     ],
     "gbpCategories": "Restaurant, Family Restaurant, American Restaurant",
     "mapPackTips": "Restaurant Map Pack rankings are uniquely multidimensional — Google surfaces restaurants based on cuisine type, price range, and dining occasion in addition to proximity, making the servesCuisine, priceRange, and hasMenu schema properties among the most influential fields you can populate to capture filtered search traffic. Set your openingHoursSpecification with maximum precision, including holiday hours and separate lunch vs. dinner service windows, as Google uses this to surface restaurants in real-time 'open now' searches — one of the highest-converting query types in all of local search. Activating reservation or ordering capabilities through your schema's potentialAction property links your structured data directly to transaction intent, pushing your restaurant to the top of filtered searches for 'restaurants with online ordering near me' where conversion intent is at its absolute peak.",
     "metaDescription": "Free Restaurant schema generator. Create JSON-LD with cuisine type, menu URL, and hours — structured data Google needs to rank your restaurant locally."
   },
   {
-    "id": "cleaning_service",
+    "id": "cleaning-service",
     "name": "Cleaning Service",
     "schemaType": "ProfessionalService",
     "icon": "✨",
@@ -190,10 +190,10 @@
     "exampleCodeSnippet": "{\n  \"@type\": \"ProfessionalService\",\n  \"name\": \"Sparkle Clean Maids\",\n  \"areaServed\": \"Seattle\",\n  \"priceRange\": \"$$\"\n}",
     "semanticRelatedIds": [
       "handyman",
-      "pest_control",
+      "pest-control",
       "landscaper",
-      "moving_company",
-      "waste_management"
+      "moving-company",
+      "waste-management"
     ],
     "gbpCategories": "House Cleaning Service, Janitorial Service, Commercial Cleaning Service",
     "mapPackTips": "Cleaning services are primarily booked by searchers in the consideration phase rather than in an emergency, which means Map Pack visibility combined with a high star rating is the primary conversion driver — making your aggregateRating schema field disproportionately valuable compared to almost any other structured data property you can add. As a service area business that travels to clients, use the areaServed property to list every neighborhood and suburb you serve, because cleaning searches are frequently neighborhood-specific ('house cleaner in [suburb]') and you need explicit geographic schema signals to compete for these high-converting, low-competition local queries. Enable the SAB toggle when generating your schema to omit your residential or home-office address — Google explicitly requires service area businesses to hide their physical location on their Business Profile, and consistent, policy-compliant schema data eliminates the risk of a profile suspension that would remove you from the Map Pack entirely.",

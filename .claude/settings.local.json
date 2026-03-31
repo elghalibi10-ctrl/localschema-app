@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(npm run:*)",
-      "Bash(npm list:*)"
+      "Bash(npm list:*)",
+      "Bash(powershell -Command \"$content = \\(Get-Content niches.json -Raw\\); $content = $content -replace ''roofing_contractor'', ''roofing-contractor''; $content = $content -replace ''pest_control'', ''pest-control''; $content = $content -replace ''real_estate_agent'', ''real-estate-agent''; $content = $content -replace ''moving_company'', ''moving-company''; $content = $content -replace ''it_support'', ''it-support''; $content = $content -replace ''web_design'', ''web-design''; $content = $content -replace ''ice_cream'', ''ice-cream''; $content = $content -replace ''cleaning_service'', ''cleaning-service''; $content = $content -replace ''waste_management'', ''waste-management''; Set-Content niches.json -Value $content -NoNewline\")",
+      "Bash(python3 -c \":*)"
     ]
   }
 }
