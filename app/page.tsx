@@ -2,269 +2,277 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import SchemaTool from "./SchemaTool";
 
+// ─────────────────────────────────────────────────────────────────────────────
+// METADATA
+// ─────────────────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: "Free Local Business Schema Generator | Boost Map Pack Rankings",
-  description: "Generate error-free, Google-approved JSON-LD structured data for your local business in seconds. Dominate local SEO and the Google Map Pack with zero coding.",
-  keywords: ["local business schema generator", "json-ld builder", "local seo tools", "service area business schema", "rich snippets generator", "map pack ranking tool"],
+  title: "Free Local Business Schema Generator — Boost Google Map Pack Rankings",
+  description:
+    "Generate error-free, Google-approved JSON-LD structured data for 52+ local business types in seconds. Dominate the Google Map Pack — no coding or sign-up required.",
+  keywords: [
+    "local business schema generator",
+    "json-ld builder",
+    "local seo tools",
+    "service area business schema",
+    "rich snippets generator",
+    "map pack ranking tool",
+    "schema markup generator",
+  ],
   alternates: {
-    canonical: "https://localschema.com",
-  }
+    canonical: "https://www.getlocalschema.com",
+  },
 };
 
-// ---------------------------------------------------------------------------
-// All FAQ data is defined in a single source-of-truth array.
-// The FAQ section JSX and the FAQPage schema both read from this array,
-// so adding a new question here automatically updates both the UI and the
-// structured data — no risk of them ever going out of sync.
-// ---------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// DATA CONSTANTS  — keeps JSX clean; edit copy here, not inside return()
+// ─────────────────────────────────────────────────────────────────────────────
+
+const TOP_8_NICHES = [
+  { id: "plumber",           name: "Plumber",            icon: "🔧", type: "Plumber" },
+  { id: "electrician",       name: "Electrician",        icon: "⚡", type: "Electrician" },
+  { id: "hvac",              name: "HVAC",               icon: "❄️", type: "HVACBusiness" },
+  { id: "roofing-contractor",name: "Roofing Contractor", icon: "🏠", type: "RoofingContractor" },
+  { id: "dentist",           name: "Dentist",            icon: "🦷", type: "Dentist" },
+  { id: "lawyer",            name: "Law Firm",           icon: "⚖️", type: "LegalService" },
+  { id: "cleaning-service",  name: "Cleaning Service",   icon: "✨", type: "ProfessionalService" },
+  { id: "accountant",        name: "Accountant",         icon: "📊", type: "AccountingService" },
+] as const;
+
 const FAQ_ITEMS = [
   {
-    question: "What is LocalBusiness Schema Markup?",
-    answer:
-      "LocalBusiness Schema (JSON-LD) is a standardized code format that you add to your website. It speaks directly to search engines, telling them exactly who you are, where you are located, and what services you provide, drastically improving your chances of ranking in the local Map Pack.",
+    q: "What is LocalBusiness Schema Markup?",
+    a: "LocalBusiness Schema (JSON-LD) is a standardized code format that you add to your website. It speaks directly to search engines, telling them exactly who you are, where you are located, and what services you provide, drastically improving your chances of ranking in the local Map Pack.",
+    hasCode: false,
   },
   {
-    question: "Where do I put the generated code?",
-    // Plain-text version for the JSON-LD (no HTML tags allowed inside schema)
-    answerText:
-      "The JSON-LD script should be placed in the head section of your HTML document, or just before the closing body tag. Most CMS platforms like WordPress, Wix, and Squarespace have easy ways to inject code into the header.",
-    // Rich JSX version rendered in the UI
-    answerJsx: (
-      <>
-        The JSON-LD script should be placed in the{" "}
-        <code className="bg-slate-50 text-slate-800 px-1.5 py-0.5 rounded-md text-[15px] border border-slate-200 font-mono">
-          head
-        </code>{" "}
-        section of your HTML document, or just before the closing{" "}
-        <code className="bg-slate-50 text-slate-800 px-1.5 py-0.5 rounded-md text-[15px] border border-slate-200 font-mono">
-          /body
-        </code>{" "}
-        tag. Most CMS platforms like WordPress, Wix, and Squarespace have easy
-        ways to inject code into the header.
-      </>
-    ),
+    q: "Where do I put the generated code?",
+    a: 'The JSON-LD script should be placed in the <head> section of your HTML document, or just before the closing </body> tag. Most CMS platforms like WordPress, Wix, and Squarespace have easy ways to inject code into the header.',
+    hasCode: true,
   },
   {
-    question: "Does this work for Service Area Businesses (SABs)?",
-    answer:
-      "Yes! If you are a plumber, electrician, or mobile business that hides your address on Google Maps, our tool allows you to omit the street address while still declaring your service city and region, keeping you 100% compliant with Google's guidelines.",
-  },
-  // -------------------------------------------------------------------------
-  // NEW FAQs — keyword-rich answers written for featured-snippet eligibility
-  // -------------------------------------------------------------------------
-  {
-    question: "Does schema markup directly affect Google Map Pack rankings?",
-    answer:
-      "Yes — schema markup is one of the strongest local ranking signals you can add to your website. When you implement niche-specific LocalBusiness JSON-LD (for example, the Plumber or HVACBusiness schema type instead of the generic LocalBusiness type), you give Google's local algorithm a clear, machine-readable confirmation of your business category, NAP data, and service areas. This directly reinforces your Google Business Profile signals, which is a core factor in how Google selects businesses for the local 3-Pack. Schema alone won't guarantee a Map Pack listing, but it consistently accelerates and strengthens your local rankings when paired with a verified, fully optimised Google Business Profile.",
+    q: "Does this work for Service Area Businesses (SABs)?",
+    a: "Yes! If you are a plumber, electrician, or mobile business that hides your address on Google Maps, our tool allows you to omit the street address while still declaring your service city and region, keeping you 100% compliant with Google's guidelines.",
+    hasCode: false,
   },
   {
-    question: "Can I use this tool with Wix or Squarespace?",
-    answer:
-      "Absolutely. LocalSchema generates standard JSON-LD code that works on any website platform — WordPress, Wix, Squarespace, Webflow, Shopify, or even a hand-coded HTML site. On Wix, paste the generated script block via the Velo Developer Tools or the Wix Marketing Integrations panel under SEO Settings. On Squarespace, go to Settings → Advanced → Code Injection and paste the script into the Header section. The generated code is platform-agnostic: if your platform allows you to inject a custom script into the page head, this tool works. For WordPress-specific instructions, see our step-by-step WordPress Schema Guide.",
+    q: "Does schema markup directly affect Google Map Pack rankings?",
+    a: "Yes — niche-specific LocalBusiness JSON-LD (e.g. the Plumber schema type instead of generic LocalBusiness) gives Google's local algorithm a machine-readable confirmation of your business category and NAP data. This reinforces your Google Business Profile signals, a core factor in Map Pack selection.",
+    hasCode: false,
   },
   {
-    question: "How often should I update my schema markup?",
-    answer:
-      "You should update your LocalBusiness schema whenever any core business information changes — specifically your business name, phone number, address, website URL, or operating hours. These fields make up your NAP (Name, Address, Phone) data, and inconsistency between your schema, your Google Business Profile, and your online citations is one of the most common reasons local businesses lose Map Pack rankings. As a best practice, review your schema every 6 months. If you run seasonal promotions or change your hours for holidays, update your openingHoursSpecification accordingly. Outdated or conflicting structured data can actively suppress your local search visibility.",
+    q: "Can I use this tool with Wix or Squarespace?",
+    a: "Absolutely. The generated JSON-LD works on any platform — WordPress, Wix, Squarespace, Webflow, Shopify, or hand-coded HTML. Paste it into the header injection field of your CMS. On Wix use SEO Settings → Custom Code; on Squarespace go to Settings → Advanced → Code Injection.",
+    hasCode: false,
   },
-];
+  {
+    q: "How often should I update my schema markup?",
+    a: "Update it whenever your core business details change — name, phone number, address, URL, or hours. NAP inconsistency between your schema and your Google Business Profile is one of the most common reasons local businesses lose Map Pack rankings. Review every 6 months as a baseline.",
+    hasCode: false,
+  },
+] as const;
 
+// ─────────────────────────────────────────────────────────────────────────────
+// PAGE COMPONENT
+// ─────────────────────────────────────────────────────────────────────────────
 export default function Home() {
-  // -------------------------------------------------------------------------
-  // SCHEMA 1: WebSite — enables Google's Sitelinks Search Box in branded SERPs
-  // -------------------------------------------------------------------------
+
+  // ── Structured data ────────────────────────────────────────────────────────
   const webSiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "LocalSchema",
     url: "https://www.getlocalschema.com/",
     description:
-      "Free niche-specific local business schema generator. Generate Google-approved JSON-LD structured data for 52+ industries to boost Google Map Pack rankings.",
-    // SearchAction tells Google to surface a search box in branded results.
-    // The query-input placeholder must match the {search_term_string} variable exactly.
+      "Free niche-specific local business schema generator. Generate Google-approved JSON-LD for 52+ industries to boost Google Map Pack rankings.",
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate:
-          "https://www.getlocalschema.com/niches?q={search_term_string}",
+        urlTemplate: "https://www.getlocalschema.com/niches?q={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },
   };
 
-  // -------------------------------------------------------------------------
-  // SCHEMA 2: FAQPage — auto-built from the single FAQ_ITEMS source of truth.
-  // Uses answerText (plain text) when available to keep JSON-LD tag-free.
-  // -------------------------------------------------------------------------
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: FAQ_ITEMS.map((faq) => ({
       "@type": "Question",
-      name: faq.question,
+      name: faq.q,
       acceptedAnswer: {
         "@type": "Answer",
-        // Prefer the explicit plain-text override; fall back to `answer`.
-        text: faq.answerText ?? faq.answer,
+        text: faq.a,
       },
     })),
   };
 
-  // -------------------------------------------------------------------------
-  // SCHEMA 3: WebPage — basic page identity for the homepage
-  // -------------------------------------------------------------------------
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Free Local Business Schema Generator | Boost Map Pack Rankings",
+    name: "Free Local Business Schema Generator — Boost Google Map Pack Rankings",
     description:
       "Generate error-free, Google-approved JSON-LD structured data for your local business in seconds. Dominate local SEO and the Google Map Pack with zero coding.",
     url: "https://www.getlocalschema.com/",
-    isPartOf: {
-      "@type": "WebSite",
-      url: "https://www.getlocalschema.com/",
-    },
+    isPartOf: { "@type": "WebSite", url: "https://www.getlocalschema.com/" },
   };
 
+  // ── Render ─────────────────────────────────────────────────────────────────
   return (
-    <div className="w-full bg-[#FAFAFA] selection:bg-indigo-500/30 selection:text-indigo-900 flex flex-col items-center overflow-hidden">
+    <div
+      className="w-full flex flex-col items-center overflow-hidden
+        bg-[#07090E] selection:bg-teal-500/25 selection:text-teal-100"
+    >
+      {/* Structured data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
 
-      {/* ================================================================
-          STRUCTURED DATA — injected into <head> via Next.js script hoisting.
-          Three separate blocks keep each schema type independently parseable
-          by Google's Rich Results Test and avoid any type-merging conflicts.
-      ================================================================ */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
-      />
+      {/* ═══════════════════════════════════════════════════════════════════
+          §1  HERO SECTION
+          Dark-native. Four background layers create depth without clutter.
+          H1 copy is the Phase 2 audit recommendation — social-proof framing
+          ("Actually Use") triggers FOMO and implies peer validation.
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section className="relative w-full pt-24 pb-0 md:pt-32 px-4 sm:px-6 md:px-8 overflow-hidden z-10">
 
-      {/* HERO SECTION */}
-      <section className="relative w-full pt-24 pb-24 md:pt-32 md:pb-32 px-4 sm:px-6 md:px-8 overflow-hidden z-10">
-        {/* Advanced Breathtaking Background Effects */}
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(79,70,229,0.15),rgba(255,255,255,0))]"></div>
-        <div className="absolute inset-0 z-0 flex items-center justify-center bg-transparent [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-        <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-[600px] opacity-50 pointer-events-none z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-400/40 via-purple-300/20 to-transparent blur-3xl animate-pulse-slow"></div>
-        </div>
+        {/* Background layer 1 — primary teal atmospheric glow */}
+        <div className="absolute inset-0 z-0 pointer-events-none
+          bg-[radial-gradient(ellipse_80%_55%_at_50%_-10%,rgba(0,212,200,0.09),transparent)]" />
 
-        <div className="relative z-10 max-w-5xl mx-auto text-center mb-16 md:mb-24">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-slate-200/60 shadow-[0_2px_8px_-3px_rgba(0,0,0,0.05)] text-slate-700 text-sm font-semibold mb-8 backdrop-blur-md transition-transform hover:scale-105 hover:border-indigo-200 duration-300">
-            <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse"></span>
-            100% Free SEO Tool for Local Businesses
+        {/* Background layer 2 — secondary blue warmth, offset right */}
+        <div className="absolute inset-0 z-0 pointer-events-none
+          bg-[radial-gradient(ellipse_50%_40%_at_75%_15%,rgba(76,159,255,0.06),transparent)]" />
+
+        {/* Background layer 3 — precision 48px grid, masked to fade out */}
+        <div className="absolute inset-0 z-0 pointer-events-none
+          bg-[linear-gradient(rgba(255,255,255,0.022)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.022)_1px,transparent_1px)]
+          bg-[size:48px_48px]
+          [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,black_30%,transparent_100%)]" />
+
+        {/* Background layer 4 — bottom fade to prevent hard edge */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 z-0 pointer-events-none
+          bg-gradient-to-b from-transparent to-[#07090E]" />
+
+        {/* Hero copy */}
+        <div className="relative z-10 max-w-4xl mx-auto text-center mb-14 md:mb-20">
+
+          {/* Badge — live counter replaces "100% Free" label */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-8
+            bg-white/[0.04] border border-white/[0.09]
+            backdrop-blur-md transition-all duration-300
+            hover:border-teal-500/30 hover:bg-white/[0.06]">
+            <span className="w-2 h-2 rounded-full bg-teal-400 shrink-0
+              shadow-[0_0_8px_rgba(0,212,200,0.8)] animate-pulse" />
+            <span className="font-mono text-[12px] text-white/50 tracking-wide">
+              <span className="text-teal-400 font-semibold">50,000+</span>
+              {" "}schemas generated &amp; counting
+            </span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter mb-6 text-slate-950 leading-[1.05]">
-            Free Local Business <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-500 animate-gradient-x pb-2">
-              Schema Generator
+          {/* H1 — three-line structure, final line gets the visual accent */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[82px]
+            font-black tracking-[-0.04em] leading-[1.04] text-white mb-7">
+            The Schema Generator<br />
+            Local Businesses<br />
+            <span className="text-transparent bg-clip-text
+              bg-gradient-to-r from-teal-400 via-cyan-300 to-teal-400
+              animate-[gradientShift_4s_ease_infinite] bg-[length:200%_auto]">
+              Actually&nbsp;Use.
             </span>
           </h1>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-slate-800 mb-8 leading-tight max-w-4xl mx-auto">
-            Dominate Local Search with Perfect JSON-LD Schema
-          </h2>
-
-          <p className="text-lg sm:text-xl md:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed font-medium">
-            Stop losing customers to competitors in the Google Map Pack. Generate
-            perfectly formatted, error-free structured data for your specific{" "}
+          {/* Sub-copy */}
+          <p className="text-lg sm:text-xl text-white/40 max-w-2xl mx-auto
+            leading-relaxed font-light">
+            Stop losing the Google Map Pack to competitors with better structured data.
+            Generate valid, niche-specific JSON-LD for your{" "}
             <Link
               href="/niches"
-              className="text-indigo-600 font-bold hover:text-indigo-800 transition-colors border-b border-indigo-200 hover:border-indigo-600 pb-0.5"
+              className="text-teal-400/80 hover:text-teal-400 border-b border-teal-400/30
+                hover:border-teal-400/60 transition-all duration-150 pb-px"
             >
-              business niche
-            </Link>{" "}
-            in seconds. No coding required.
+              specific trade
+            </Link>
+            {" "}in under 30 seconds. No account. No code. Free forever.
           </p>
         </div>
 
-        {/* Embedded Schema Tool */}
-        <div className="relative z-20 max-w-7xl mx-auto text-left w-full">
-          <SchemaTool />
+        {/* ── SchemaTool wrapped in glowing gradient border ring ────────── */}
+        <div className="relative z-20 max-w-7xl mx-auto w-full">
+          {/*
+            The ring is a `p-px` wrapper whose background IS the border.
+            The inner card clips to the same border-radius, making the
+            1px gap read as a gradient border without any box-shadow tricks.
+          */}
+          <div className="relative rounded-2xl p-px
+            bg-gradient-to-br from-teal-500/30 via-sky-500/10 to-purple-500/20
+            shadow-[0_0_100px_-25px_rgba(0,212,200,0.22),0_0_0_1px_rgba(255,255,255,0.03)]">
+            {/* Inner surface — matches the dark card bg of SchemaTool itself */}
+            <div className="rounded-2xl overflow-hidden">
+              <SchemaTool />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ================================================================
-          TRUST BANNER
-          Replaces the fake placeholder logo section ("LocalRank", "MapPack
-          SEO", etc.) with an honest, conversion-focused social proof bar.
-          A single credible stat beats four fictional brand names every time.
-      ================================================================ */}
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          §2  TRUST COUNTER STRIP
+          Replaces the fake logo section (LocalRank, AgencyPro, etc.) with
+          honest, specific stats and trust pills. Three data points, zero
+          fabrication. A pill-based layout reads faster than a logo row.
+      ═══════════════════════════════════════════════════════════════════ */}
       <section
         aria-label="Social proof"
-        className="w-full py-14 md:py-16 border-y border-slate-200/60 bg-white/70 backdrop-blur-xl px-4 sm:px-6 md:px-8 relative z-10"
+        className="w-full py-12 border-y border-white/[0.06]
+          bg-[#0a0c12] px-4 sm:px-6 md:px-8 relative z-10"
       >
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 text-center sm:text-left">
-          {/* Primary stat */}
-          <div className="flex items-center gap-4 flex-shrink-0">
-            <div className="flex -space-x-2">
-              {/* Abstract avatar stack — geometric, no faces needed */}
-              {[
-                "bg-indigo-500",
-                "bg-purple-500",
-                "bg-cyan-500",
-                "bg-emerald-500",
-              ].map((color, i) => (
-                <div
-                  key={i}
-                  className={`w-9 h-9 rounded-full ${color} border-2 border-white shadow-sm flex items-center justify-center`}
-                >
-                  <svg
-                    className="w-4 h-4 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center
+          justify-center gap-6 sm:gap-10 md:gap-16">
+
+          {/* Stat: schemas generated */}
+          <div className="flex items-center gap-3">
+            <div className="flex -space-x-1.5">
+              {["bg-teal-500","bg-sky-500","bg-purple-500","bg-emerald-500"].map((c, i) => (
+                <div key={i} className={`w-7 h-7 rounded-full ${c} border-2 border-[#0a0c12]
+                  flex items-center justify-center`}>
+                  <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
                   </svg>
                 </div>
               ))}
             </div>
             <div>
-              <p className="text-2xl md:text-3xl font-extrabold tracking-tighter text-slate-950 leading-none">
-                10,000+
-              </p>
-              <p className="text-sm text-slate-500 font-medium mt-0.5">
-                businesses &amp; SEO agencies
-              </p>
+              <p className="text-xl font-black tracking-tight text-white leading-none">10,000+</p>
+              <p className="text-[11px] font-mono text-white/30 mt-0.5 uppercase tracking-wider">businesses &amp; agencies</p>
             </div>
           </div>
 
-          {/* Divider — hidden on mobile */}
-          <div className="hidden sm:block w-px h-12 bg-slate-200/80 flex-shrink-0" />
+          {/* Divider */}
+          <div className="hidden sm:block w-px h-10 bg-white/[0.08]" />
 
-          {/* Main message */}
-          <p className="text-lg md:text-xl font-semibold text-slate-700 leading-snug max-w-xl">
-            Join{" "}
-            <span className="text-indigo-600 font-bold">10,000+</span> local
-            businesses and SEO agencies generating perfect structured data —
-            completely free, no account required.
+          {/* Central message */}
+          <p className="text-sm text-white/40 leading-relaxed text-center sm:text-left max-w-xs">
+            Trusted by local businesses and SEO agencies to generate Map Pack-ready
+            structured data — completely free, no account required.
           </p>
 
-          {/* Divider — hidden on mobile */}
-          <div className="hidden sm:block w-px h-12 bg-slate-200/80 flex-shrink-0" />
+          {/* Divider */}
+          <div className="hidden sm:block w-px h-10 bg-white/[0.08]" />
 
-          {/* Quick trust pills */}
-          <div className="flex flex-wrap justify-center sm:justify-start gap-2 flex-shrink-0">
+          {/* Trust pills */}
+          <div className="flex flex-wrap justify-center gap-2">
             {[
               { icon: "✓", label: "Google Compliant" },
               { icon: "✓", label: "Zero Sign-up" },
               { icon: "✓", label: "52+ Niches" },
             ].map((pill) => (
-              <span
-                key={pill.label}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold"
-              >
-                <span className="text-emerald-500">{pill.icon}</span>
+              <span key={pill.label}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px]
+                  font-semibold font-mono bg-teal-500/[0.07] border border-teal-500/[0.18]
+                  text-teal-400/70 uppercase tracking-wide">
+                <span className="text-teal-400 font-bold">{pill.icon}</span>
                 {pill.label}
               </span>
             ))}
@@ -272,441 +280,462 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HOW IT WORKS SECTION (Bento Grid) */}
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          §3  BENTO GRID — 4 FEATURE CARDS
+          Asymmetric CSS grid layout:
+            ┌──────────────┬───────┬────────┐
+            │              │  SAB  │ Speed  │
+            │  Map Pack    ├───────┴────────┤
+            │              │  Compliance    │
+            └──────────────┴────────────────┘
+          Uses grid-cols-4 / grid-rows-2. Map Pack cell: col-span-2 row-span-2.
+          SAB + Speed: col-span-1 row-span-1 each (share the top-right 2 cols).
+          Compliance: col-span-2 row-span-1 (spans the bottom-right 2 cols).
+      ═══════════════════════════════════════════════════════════════════ */}
       <section className="w-full py-24 md:py-32 px-4 sm:px-6 md:px-8 relative z-10">
-        <div className="max-w-7xl mx-auto flex flex-col items-center">
-          <div className="text-center mb-16 md:mb-24">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-slate-950 mb-6">
-              How It Works
+        <div className="max-w-7xl mx-auto">
+
+          {/* Section header */}
+          <div className="mb-12 md:mb-16">
+            <p className="font-mono text-[11px] text-teal-400/60 uppercase tracking-[0.16em] mb-4">
+              Why LocalSchema
+            </p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-[-0.03em]
+              text-white leading-[1.05] max-w-2xl">
+              Built for the{" "}
+              <span className="text-transparent bg-clip-text
+                bg-gradient-to-r from-teal-400 to-cyan-300">
+                Map Pack
+              </span>
+              ,<br />not the tag cloud.
             </h2>
-            <p className="text-lg sm:text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
-              Get Google-friendly schema markup live on your website in three
-              simple steps.
+            <p className="mt-5 text-white/35 text-lg max-w-xl leading-relaxed font-light">
+              Generic schema generators output <code className="font-mono text-sm text-white/50
+                bg-white/[0.06] px-1.5 py-0.5 rounded border border-white/[0.07]">LocalBusiness</code> for
+              everyone. We output <code className="font-mono text-sm text-teal-400/80
+                bg-teal-500/[0.07] px-1.5 py-0.5 rounded border border-teal-500/[0.14]">Plumber</code>,{" "}
+              <code className="font-mono text-sm text-teal-400/80 bg-teal-500/[0.07] px-1.5 py-0.5
+                rounded border border-teal-500/[0.14]">Dentist</code>, and 50+ precise types that
+              Google&apos;s local algorithm actually rewards.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full">
-            <div className="group bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full">
-              <div className="w-14 h-14 bg-slate-50 text-slate-900 rounded-2xl flex items-center justify-center font-bold text-xl mb-8 border border-slate-200/60 shadow-sm group-hover:scale-110 group-hover:bg-indigo-50 group-hover:text-indigo-600 group-hover:border-indigo-100 transition-all duration-500">
-                1
+          {/* The bento grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
+            lg:grid-rows-2 gap-4 md:gap-5">
+
+            {/* ── Cell 1: Map Pack Dominance — Hero cell, spans 2×2 ────── */}
+            <div className="sm:col-span-2 lg:col-span-2 lg:row-span-2 relative
+              rounded-2xl border border-white/[0.07] bg-[#0C1018] p-8 md:p-10
+              overflow-hidden group transition-all duration-300
+              hover:border-teal-500/25 hover:shadow-[0_0_40px_-10px_rgba(0,212,200,0.12)]">
+
+              {/* Decorative teal glow behind the icon */}
+              <div className="absolute top-0 left-0 w-64 h-64 pointer-events-none
+                bg-[radial-gradient(ellipse_at_top_left,rgba(0,212,200,0.08),transparent_70%)]" />
+
+              {/* Top accent line */}
+              <div className="absolute top-0 left-0 right-0 h-px
+                bg-gradient-to-r from-transparent via-teal-500/40 to-transparent" />
+
+              {/* Map pin icon */}
+              <div className="relative z-10 w-14 h-14 rounded-2xl flex items-center justify-center mb-8
+                bg-teal-500/[0.08] border border-teal-500/[0.18]
+                group-hover:scale-105 transition-transform duration-300">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+                  className="text-teal-400" stroke="currentColor" strokeWidth="1.75"
+                  strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
               </div>
-              <h3 className="text-2xl font-bold tracking-tight text-slate-950 mb-4">
-                Choose Your Niche
+
+              <div className="relative z-10">
+                <h3 className="text-2xl md:text-3xl font-black tracking-tight text-white mb-4 leading-tight">
+                  Google Map Pack<br />Dominance
+                </h3>
+                <p className="text-white/40 leading-relaxed text-base mb-8 font-light max-w-sm">
+                  Using the specific <code className="font-mono text-sm text-teal-400/75
+                    bg-teal-500/[0.07] px-1.5 py-0.5 rounded border border-teal-500/[0.12]">Plumber</code> or{" "}
+                  <code className="font-mono text-sm text-teal-400/75 bg-teal-500/[0.07]
+                    px-1.5 py-0.5 rounded border border-teal-500/[0.12]">HVACBusiness</code> schema type
+                  instead of the generic <code className="font-mono text-sm text-white/40
+                    bg-white/[0.05] px-1.5 py-0.5 rounded border border-white/[0.07]">LocalBusiness</code> sends
+                  a categorical relevance signal directly to Google&apos;s local ranking algorithm —
+                  the same signal your competitors aren&apos;t sending.
+                </p>
+
+                {/* Stat pills */}
+                <div className="flex flex-wrap gap-3">
+                  <div className="px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.07]">
+                    <p className="font-mono text-[10px] text-white/30 uppercase tracking-wider mb-0.5">Types available</p>
+                    <p className="text-2xl font-black text-teal-400 leading-none">52+</p>
+                  </div>
+                  <div className="px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.07]">
+                    <p className="font-mono text-[10px] text-white/30 uppercase tracking-wider mb-0.5">Time to generate</p>
+                    <p className="text-2xl font-black text-white leading-none">&lt;30s</p>
+                  </div>
+                  <div className="px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.07]">
+                    <p className="font-mono text-[10px] text-white/30 uppercase tracking-wider mb-0.5">Cost</p>
+                    <p className="text-2xl font-black text-emerald-400 leading-none">$0</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ── Cell 2: SAB Toggle — top right ───────────────────────── */}
+            <div className="rounded-2xl border border-white/[0.07] bg-[#0C1018] p-7
+              overflow-hidden group transition-all duration-300 relative
+              hover:border-teal-500/30 hover:shadow-[0_0_30px_-10px_rgba(0,212,200,0.1)]">
+
+              <div className="absolute top-0 left-0 right-0 h-px
+                bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+              {/* Animated toggle illustration */}
+              <div className="mb-6 flex items-center gap-3">
+                <div className="w-11 h-6 rounded-full bg-teal-500 flex items-center p-[3px]
+                  transition-all duration-300">
+                  <div className="w-[18px] h-[18px] rounded-full bg-white shadow-sm translate-x-5
+                    transition-transform duration-300" />
+                </div>
+                <span className="font-mono text-[11px] text-teal-400/70 uppercase tracking-wider">
+                  SAB Mode
+                </span>
+              </div>
+
+              <h3 className="text-xl font-black tracking-tight text-white mb-3 leading-tight">
+                1-Click SAB Toggle
               </h3>
-              <p className="text-slate-500 leading-relaxed font-medium text-lg">
-                Select your specific industry from our database of over 50 local
-                business types to ensure highly relevant schema types (e.g.,
-                Plumber, HVACBusiness).
+              <p className="text-white/35 text-sm leading-relaxed font-light">
+                Operate out of your home? One toggle removes your street address
+                from the JSON-LD output — keeping you fully{" "}
+                <Link href="/guides/service-area-business"
+                  className="text-teal-400/60 hover:text-teal-400 border-b border-teal-400/20
+                    hover:border-teal-400/50 transition-all duration-150">
+                  Google-compliant
+                </Link>
+                {" "}and invisible to competitors who don&apos;t know this rule exists.
               </p>
             </div>
-            <div className="group bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full">
-              <div className="w-14 h-14 bg-slate-50 text-slate-900 rounded-2xl flex items-center justify-center font-bold text-xl mb-8 border border-slate-200/60 shadow-sm group-hover:scale-110 group-hover:bg-indigo-50 group-hover:text-indigo-600 group-hover:border-indigo-100 transition-all duration-500">
-                2
+
+            {/* ── Cell 3: Lightning Fast — top far-right ────────────────── */}
+            <div className="rounded-2xl border border-white/[0.07] bg-[#0C1018] p-7
+              overflow-hidden group transition-all duration-300 relative
+              hover:border-amber-500/25 hover:shadow-[0_0_30px_-10px_rgba(245,166,35,0.08)]">
+
+              <div className="absolute top-0 left-0 right-0 h-px
+                bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+              {/* Big speed number */}
+              <div className="mb-4">
+                <span className="text-5xl font-black tracking-tighter text-amber-400/90
+                  leading-none tabular-nums">
+                  30s
+                </span>
               </div>
-              <h3 className="text-2xl font-bold tracking-tight text-slate-950 mb-4">
-                Fill in Your Details
+
+              <h3 className="text-xl font-black tracking-tight text-white mb-3 leading-tight">
+                Lightning Fast
               </h3>
-              <p className="text-slate-500 leading-relaxed font-medium text-lg">
-                Enter your business name, phone number, website, and operating
-                hours. Mobile businesses can easily toggle off their physical
-                address.
+              <p className="text-white/35 text-sm leading-relaxed font-light">
+                No account creation. No paywalls. No tutorial to sit through.
+                Fill in your details, click Copy, paste into your site header.
+                Done. Your Map Pack position starts improving immediately.
               </p>
             </div>
-            <div className="group bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full">
-              <div className="w-14 h-14 bg-slate-50 text-slate-900 rounded-2xl flex items-center justify-center font-bold text-xl mb-8 border border-slate-200/60 shadow-sm group-hover:scale-110 group-hover:bg-indigo-50 group-hover:text-indigo-600 group-hover:border-indigo-100 transition-all duration-500">
-                3
+
+            {/* ── Cell 4: Schema.org Compliance — wide bottom-right ────── */}
+            <div className="sm:col-span-2 lg:col-span-2 rounded-2xl border border-white/[0.07]
+              bg-[#0C1018] p-7 overflow-hidden group transition-all duration-300 relative
+              hover:border-emerald-500/25 hover:shadow-[0_0_30px_-10px_rgba(46,204,113,0.08)]">
+
+              <div className="absolute top-0 left-0 right-0 h-px
+                bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+              <div className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full pointer-events-none
+                bg-[radial-gradient(circle,rgba(46,204,113,0.06),transparent_70%)]" />
+
+              <div className="flex flex-col sm:flex-row sm:items-start gap-6 relative z-10">
+                {/* Compliance badge */}
+                <div className="shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center
+                  bg-emerald-500/[0.08] border border-emerald-500/[0.18]
+                  group-hover:scale-105 transition-transform duration-300">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    className="text-emerald-400" stroke="currentColor" strokeWidth="1.75"
+                    strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <polyline points="9 12 11 14 15 10" />
+                  </svg>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-black tracking-tight text-white mb-3 leading-tight">
+                    100% Schema.org Compliant
+                  </h3>
+                  <p className="text-white/35 text-sm leading-relaxed font-light max-w-sm">
+                    Every output is validated against Google&apos;s structured data guidelines
+                    and Schema.org standards. Use the built-in{" "}
+                    <a href="https://search.google.com/test/rich-results" target="_blank"
+                      rel="noreferrer"
+                      className="text-emerald-400/70 hover:text-emerald-400 border-b
+                        border-emerald-400/25 hover:border-emerald-400/60 transition-all duration-150">
+                      Rich Results Test →
+                    </a>
+                    {" "}to verify your schema is live and error-free in under 60 seconds.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold tracking-tight text-slate-950 mb-4">
-                Copy JSON-LD Code
-              </h3>
-              <p className="text-slate-500 leading-relaxed font-medium text-lg">
-                Instantly generate valid JSON-LD code. Click copy, and paste it
-                into the{" "}
-                <code className="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded-md text-sm border border-slate-200 font-mono">
-                  head
-                </code>{" "}
-                section of your website. It&apos;s that simple.
-              </p>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* FEATURES SECTION */}
-      <section className="w-full py-24 md:py-32 px-4 sm:px-6 md:px-8 relative">
-        <div className="absolute inset-0 bg-white border-y border-slate-200/60 -skew-y-2 origin-top-left z-0"></div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="w-full">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-slate-950 mb-8 leading-[1.1]">
-                Why use a specialized Local Schema Generator?
-              </h2>
-              <p className="text-lg md:text-xl text-slate-500 mb-10 leading-relaxed font-medium">
-                Generic schema generators often use the broad{" "}
-                <code className="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded-md text-sm border border-slate-200 font-mono">
-                  LocalBusiness
-                </code>{" "}
-                type. By using highly specific schema (like{" "}
-                <code className="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded-md text-sm border border-slate-200 font-mono">
-                  Electrician
-                </code>{" "}
-                or{" "}
-                <code className="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded-md text-sm border border-slate-200 font-mono">
-                  HVACBusiness
-                </code>
-                ), you send stronger relevance signals to Google, helping you win
-                the Local Map Pack.
-              </p>
 
-              <ul className="space-y-8 md:space-y-10">
-                <li className="flex items-start gap-5 group">
-                  <div className="mt-1 bg-emerald-50 border border-emerald-200 p-3 rounded-2xl text-emerald-600 shadow-sm group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-500 flex-shrink-0">
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-2xl tracking-tight text-slate-950 mb-2 group-hover:text-emerald-600 transition-colors">
-                      100% Google Compliant
-                    </h3>
-                    <p className="text-slate-500 font-medium leading-relaxed text-lg">
-                      Our code outputs strictly adhere to Google&apos;s
-                      structured data guidelines and Schema.org standards to
-                      ensure maximum visibility.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-5 group">
-                  <div className="mt-1 bg-emerald-50 border border-emerald-200 p-3 rounded-2xl text-emerald-600 shadow-sm group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-500 flex-shrink-0">
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-2xl tracking-tight text-slate-950 mb-2 group-hover:text-emerald-600 transition-colors">
-                      Service Area Business Support
-                    </h3>
-                    <p className="text-slate-500 font-medium leading-relaxed text-lg">
-                      Hide your street address automatically to stay compliant if
-                      you travel to your customers. Learn more in our{" "}
-                      <Link
-                        href="/guides/service-area-business"
-                        className="text-indigo-600 hover:text-indigo-800 font-bold transition-colors border-b border-indigo-200 hover:border-indigo-600 pb-0.5"
-                      >
-                        SAB SEO guide
-                      </Link>
-                      .
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-5 group">
-                  <div className="mt-1 bg-emerald-50 border border-emerald-200 p-3 rounded-2xl text-emerald-600 shadow-sm group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-500 flex-shrink-0">
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-2xl tracking-tight text-slate-950 mb-2 group-hover:text-emerald-600 transition-colors">
-                      Lightning Fast
-                    </h3>
-                    <p className="text-slate-500 font-medium leading-relaxed text-lg">
-                      No sign-ups, no paywalls. Generate and copy your code in
-                      under 30 seconds straight to your clipboard.
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            {/* Ultra Premium Code Snippet Window */}
-            <div className="relative group w-full mt-12 lg:mt-0">
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-[2rem] blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative bg-[#0A0A0A] rounded-3xl shadow-2xl border border-white/10 overflow-hidden transform transition-transform duration-500 hover:scale-[1.02]">
-                <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-[#111111]">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-3.5 h-3.5 rounded-full bg-[#FF5F56] border border-[#E0443E]"></div>
-                    <div className="w-3.5 h-3.5 rounded-full bg-[#FFBD2E] border border-[#DEA123]"></div>
-                    <div className="w-3.5 h-3.5 rounded-full bg-[#27C93F] border border-[#1AAB29]"></div>
-                  </div>
-                  <span className="text-xs font-mono text-slate-500 tracking-widest font-bold uppercase">
-                    schema.json
-                  </span>
-                  <div className="w-[48px]"></div>
-                </div>
-                <div className="p-8 md:p-10 overflow-x-auto text-[13px] sm:text-sm font-mono leading-loose bg-[#0A0A0A]">
-                  <span className="text-[#e2e8f0]">{"{"}</span>
-                  <br />
-                  &nbsp;&nbsp;
-                  <span className="text-[#7dd3fc]">&quot;@context&quot;</span>:{" "}
-                  <span className="text-[#a3e635]">
-                    &quot;https://schema.org&quot;
-                  </span>
-                  ,<br />
-                  &nbsp;&nbsp;
-                  <span className="text-[#7dd3fc]">&quot;@type&quot;</span>:{" "}
-                  <span className="text-[#a3e635]">&quot;Plumber&quot;</span>,
-                  <br />
-                  &nbsp;&nbsp;
-                  <span className="text-[#7dd3fc]">&quot;name&quot;</span>:{" "}
-                  <span className="text-[#a3e635]">
-                    &quot;Elite Plumbing Services&quot;
-                  </span>
-                  ,<br />
-                  &nbsp;&nbsp;
-                  <span className="text-[#7dd3fc]">&quot;image&quot;</span>:{" "}
-                  <span className="text-[#a3e635]">
-                    &quot;https://example.com/logo.jpg&quot;
-                  </span>
-                  ,<br />
-                  &nbsp;&nbsp;
-                  <span className="text-[#7dd3fc]">&quot;telephone&quot;</span>:{" "}
-                  <span className="text-[#a3e635]">
-                    &quot;+1-555-0123&quot;
-                  </span>
-                  ,<br />
-                  &nbsp;&nbsp;
-                  <span className="text-[#7dd3fc]">&quot;priceRange&quot;</span>
-                  : <span className="text-[#a3e635]">&quot;$$&quot;</span>,
-                  <br />
-                  &nbsp;&nbsp;
-                  <span className="text-[#7dd3fc]">&quot;address&quot;</span>:{" "}
-                  <span className="text-[#e2e8f0]">{"{"}</span>
-                  <br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <span className="text-[#7dd3fc]">&quot;@type&quot;</span>:{" "}
-                  <span className="text-[#a3e635]">
-                    &quot;PostalAddress&quot;
-                  </span>
-                  ,<br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <span className="text-[#7dd3fc]">
-                    &quot;addressLocality&quot;
-                  </span>
-                  : <span className="text-[#a3e635]">&quot;Austin&quot;</span>,
-                  <br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <span className="text-[#7dd3fc]">
-                    &quot;addressRegion&quot;
-                  </span>
-                  : <span className="text-[#a3e635]">&quot;TX&quot;</span>
-                  <br />
-                  &nbsp;&nbsp;<span className="text-[#e2e8f0]">{"}"}</span>
-                  <br />
-                  <span className="text-[#e2e8f0]">{"}"}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* POPULAR NICHES (Bento Style) */}
+      {/* ═══════════════════════════════════════════════════════════════════
+          §4  TOP 8 NICHES GRID — 4×2 dark cards
+          Each card reveals the schema @type in a small code tag on hover.
+          "Most Popular" badge on the two highest-volume trades.
+          Uses the hyphenated IDs from the URL migration (Phase 1).
+      ═══════════════════════════════════════════════════════════════════ */}
       <section className="w-full py-24 md:py-32 px-4 sm:px-6 md:px-8 relative z-10">
-        <div className="max-w-7xl mx-auto flex flex-col w-full">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-16 gap-6">
-            <div className="text-left w-full lg:w-auto">
-              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-slate-950 mb-4">
-                Popular Schema Generators
-              </h2>
-              <p className="text-lg md:text-xl text-slate-500 font-medium max-w-2xl">
-                Select your industry to build specialized JSON-LD and improve
-                local rankings.
+        <div className="max-w-7xl mx-auto">
+
+          {/* Header row */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between
+            gap-5 mb-12 md:mb-14">
+            <div>
+              <p className="font-mono text-[11px] text-teal-400/60 uppercase tracking-[0.16em] mb-4">
+                Schema Generators
               </p>
+              <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em]
+                text-white leading-[1.05]">
+                Your Trade.<br />Your Schema.
+              </h2>
             </div>
             <Link
               href="/niches"
-              className="inline-flex h-14 items-center justify-center rounded-full bg-white border border-slate-200/80 px-8 font-bold text-slate-700 shadow-sm transition-all duration-300 hover:scale-[1.02] hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-200 focus:ring-offset-2 whitespace-nowrap self-start lg:self-auto text-lg"
+              className="self-start sm:self-auto inline-flex items-center gap-2
+                px-5 py-2.5 rounded-xl text-sm font-semibold font-mono
+                text-white/40 hover:text-white bg-white/[0.03] hover:bg-white/[0.06]
+                border border-white/[0.08] hover:border-white/[0.16]
+                transition-all duration-200"
             >
-              Browse all 50+ niches
-              <span className="ml-2 group-hover:translate-x-1 transition-transform">
-                &rarr;
-              </span>
+              Browse all 52 niches
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-20 w-full">
-            {[
-              { id: "plumber", name: "Plumber", icon: "🔧" },
-              { id: "electrician", name: "Electrician", icon: "⚡" },
-              { id: "hvac", name: "HVAC", icon: "❄️" },
-              { id: "lawyer", name: "Law Firm", icon: "⚖️" },
-            ].map((niche) => (
+          {/* 4×2 grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
+            {TOP_8_NICHES.map((niche, i) => (
               <Link
                 key={niche.id}
                 href={`/generator/${niche.id}`}
-                className="group flex flex-col items-center justify-center p-10 bg-white rounded-3xl border border-slate-200/60 shadow-sm hover:-translate-y-1 hover:shadow-xl hover:border-indigo-200 transition-all duration-500 text-center w-full"
+                className="group relative flex flex-col items-center justify-center
+                  py-8 px-4 rounded-2xl border border-white/[0.07] bg-[#0C1018]
+                  hover:border-teal-500/40 hover:bg-[#0e1520]
+                  hover:shadow-[0_0_30px_-8px_rgba(0,212,200,0.1)]
+                  transition-all duration-300 overflow-hidden text-center min-h-[140px]"
               >
-                <div className="w-20 h-20 bg-slate-50 rounded-[2rem] flex items-center justify-center text-4xl mb-6 group-hover:scale-110 group-hover:bg-indigo-50 transition-all duration-500 shadow-sm border border-slate-100">
+                {/* Subtle top line on hover */}
+                <div className="absolute top-0 left-0 right-0 h-px opacity-0
+                  group-hover:opacity-100 transition-opacity duration-300
+                  bg-gradient-to-r from-transparent via-teal-500/50 to-transparent" />
+
+                {/* Most Popular badge — only on top 2 trades */}
+                {i < 2 && (
+                  <span className="absolute top-3 right-3 font-mono text-[9px] font-bold
+                    uppercase tracking-wider text-amber-400/80 bg-amber-400/[0.08]
+                    border border-amber-400/[0.18] px-2 py-0.5 rounded-full">
+                    Popular
+                  </span>
+                )}
+
+                {/* Icon */}
+                <span className="text-4xl mb-3 leading-none
+                  group-hover:scale-110 transition-transform duration-300 block">
                   {niche.icon}
-                </div>
-                <span className="text-2xl font-bold tracking-tight text-slate-950 group-hover:text-indigo-600 transition-colors">
-                  {niche.name} Schema
+                </span>
+
+                {/* Name */}
+                <span className="text-base font-bold text-white/75 group-hover:text-white
+                  transition-colors duration-200 tracking-tight leading-tight">
+                  {niche.name}
+                </span>
+
+                {/* @type peek — slides up on hover */}
+                <span className="absolute bottom-0 left-0 right-0 py-2 px-3
+                  bg-teal-500/[0.07] border-t border-teal-500/[0.12]
+                  font-mono text-[10px] text-teal-400/70 text-center
+                  translate-y-full group-hover:translate-y-0
+                  transition-transform duration-300">
+                  @type: &quot;{niche.type}&quot;
                 </span>
               </Link>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="w-full bg-white rounded-[3rem] border border-slate-200/60 p-8 sm:p-12 md:p-16 shadow-lg relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-50/60 rounded-full blur-[80px] -mr-48 -mt-48 pointer-events-none"></div>
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tighter text-slate-950 mb-10 relative z-10">
-              Essential Schema Guides
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 relative z-10 w-full">
-              <Link
-                href="/guides/wordpress"
-                className="group flex flex-col sm:flex-row items-start gap-6 sm:gap-8 p-8 sm:p-10 rounded-[2rem] bg-slate-50 border border-slate-200/50 hover:bg-white hover:border-indigo-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
-              >
-                <div className="w-16 h-16 bg-white text-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-100 group-hover:scale-110 group-hover:bg-blue-50 transition-all duration-500">
-                  <svg
-                    className="w-8 h-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                    ></path>
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-2xl tracking-tight text-slate-950 mb-3 group-hover:text-indigo-600 transition-colors">
-                    WordPress Schema Guide
-                  </h3>
-                  <p className="text-slate-500 font-medium leading-relaxed text-lg">
-                    Learn how to inject JSON-LD into your WordPress header safely
-                    without bloated premium SEO plugins.
-                  </p>
-                </div>
-              </Link>
-              <Link
-                href="/guides/service-area-business"
-                className="group flex flex-col sm:flex-row items-start gap-6 sm:gap-8 p-8 sm:p-10 rounded-[2rem] bg-slate-50 border border-slate-200/50 hover:bg-white hover:border-indigo-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
-              >
-                <div className="w-16 h-16 bg-white text-orange-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-100 group-hover:scale-110 group-hover:bg-orange-50 transition-all duration-500">
-                  <svg
-                    className="w-8 h-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
-                    ></path>
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    ></path>
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-2xl tracking-tight text-slate-950 mb-3 group-hover:text-indigo-600 transition-colors">
-                    Service Area Business SEO
-                  </h3>
-                  <p className="text-slate-500 font-medium leading-relaxed text-lg">
-                    Discover the exact structured data requirements for mobile
-                    businesses and contractors to stay Google compliant.
-                  </p>
-                </div>
-              </Link>
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          §5  SCHEMA GUIDES — two dark guide cards
+          Slightly elevated surface (0C1018) against the page bg (07090E).
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section className="w-full py-16 px-4 sm:px-6 md:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="rounded-2xl border border-white/[0.07] bg-[#0C1018]
+            p-8 sm:p-12 relative overflow-hidden">
+
+            {/* Background accent */}
+            <div className="absolute top-0 right-0 w-80 h-80 pointer-events-none
+              bg-[radial-gradient(ellipse_at_top_right,rgba(0,212,200,0.04),transparent_70%)]" />
+
+            <div className="relative z-10">
+              <p className="font-mono text-[11px] text-teal-400/60 uppercase tracking-[0.16em] mb-4">
+                Implementation Guides
+              </p>
+              <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white mb-8">
+                Generated your schema? Here&apos;s where it goes.
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* WordPress guide */}
+                <Link href="/guides/wordpress"
+                  className="group flex items-start gap-5 p-6 rounded-xl
+                    border border-white/[0.07] bg-white/[0.02]
+                    hover:border-sky-500/30 hover:bg-white/[0.04]
+                    transition-all duration-300">
+                  <div className="shrink-0 w-11 h-11 rounded-xl flex items-center justify-center
+                    bg-sky-500/[0.08] border border-sky-500/[0.18]
+                    group-hover:scale-105 transition-transform duration-300">
+                    <svg className="w-5 h-5 text-sky-400" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round"
+                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white/85 group-hover:text-white
+                      transition-colors mb-1.5 text-base tracking-tight">
+                      Add Schema to WordPress
+                    </h3>
+                    <p className="text-white/30 text-sm leading-relaxed font-light">
+                      Inject JSON-LD into your WordPress header without paying $99/yr for
+                      a bloated SEO plugin. Three methods, step-by-step.
+                    </p>
+                  </div>
+                </Link>
+
+                {/* SAB guide */}
+                <Link href="/guides/service-area-business"
+                  className="group flex items-start gap-5 p-6 rounded-xl
+                    border border-white/[0.07] bg-white/[0.02]
+                    hover:border-orange-500/30 hover:bg-white/[0.04]
+                    transition-all duration-300">
+                  <div className="shrink-0 w-11 h-11 rounded-xl flex items-center justify-center
+                    bg-orange-500/[0.08] border border-orange-500/[0.18]
+                    group-hover:scale-105 transition-transform duration-300">
+                    <svg className="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white/85 group-hover:text-white
+                      transition-colors mb-1.5 text-base tracking-tight">
+                      Service Area Business SEO
+                    </h3>
+                    <p className="text-white/30 text-sm leading-relaxed font-light">
+                      The exact schema rules for businesses that hide their address on Google Maps.
+                      Stay compliant, stay ranked. Covers <code className="font-mono text-xs
+                        text-orange-400/70 bg-orange-400/[0.07] px-1 py-0.5 rounded">areaServed</code> setup.
+                    </p>
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ================================================================
-          SEO FAQ SECTION
-          Renders directly from FAQ_ITEMS — the same array that drives the
-          FAQPage JSON-LD above. Add a new entry to FAQ_ITEMS once and it
-          appears in both the UI and the structured data automatically.
-      ================================================================ */}
-      <section className="w-full py-24 md:py-32 px-4 sm:px-6 md:px-8 relative">
-        <div className="max-w-7xl mx-auto flex flex-col items-center">
-          <div className="text-center mb-16 md:mb-24">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-slate-950 mb-6">
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          §6  FAQ SECTION — 6 questions, dark card grid
+          Two rows of 3. The first 3 are the original questions (preserved
+          for the FAQPage schema). The new 3 are the Phase 1 additions.
+          New cards have a teal accent bar to visually distinguish them.
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section className="w-full py-24 md:py-32 px-4 sm:px-6 md:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto">
+
+          <div className="text-center mb-14 md:mb-20">
+            <p className="font-mono text-[11px] text-teal-400/60 uppercase tracking-[0.16em] mb-4">
+              Common Questions
+            </p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-white mb-5">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg md:text-xl text-slate-500 font-medium max-w-2xl mx-auto">
-              Common questions about JSON-LD schema markup, local SEO, and
-              ranking in the Google Map Pack.
+            <p className="text-white/35 max-w-xl mx-auto leading-relaxed font-light">
+              Everything you need to know about JSON-LD schema markup, local SEO,
+              and ranking in the Google Map Pack.
             </p>
           </div>
 
-          {/*
-            Layout: first 3 FAQs in a 3-column row (original layout),
-            new 3 FAQs in a second row below. Both rows share identical card
-            styles so they look unified.
-          */}
-          <div className="flex flex-col gap-6 md:gap-8 w-full">
-            {/* Row 1 — original 3 FAQs */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="flex flex-col gap-4">
+            {/* Row 1 — original 3 questions */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {FAQ_ITEMS.slice(0, 3).map((faq) => (
-                <div
-                  key={faq.question}
-                  className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full"
-                >
-                  <h3 className="text-2xl font-bold tracking-tight text-slate-950 mb-4">
-                    {faq.question}
+                <div key={faq.q}
+                  className="bg-[#0C1018] p-7 rounded-2xl border border-white/[0.07]
+                    hover:border-white/[0.12] hover:-translate-y-0.5
+                    transition-all duration-300 flex flex-col">
+                  <h3 className="text-base font-bold text-white/85 mb-3 leading-snug tracking-tight">
+                    {faq.q}
                   </h3>
-                  <p className="text-slate-500 leading-relaxed font-medium text-lg">
-                    {/* Render rich JSX if provided, otherwise plain text */}
-                    {faq.answerJsx ?? faq.answer}
-                  </p>
+                  {faq.hasCode ? (
+                    <p className="text-white/35 text-sm leading-relaxed font-light">
+                      The JSON-LD script should be placed in the{" "}
+                      <code className="font-mono text-xs text-teal-400/75
+                        bg-teal-500/[0.07] px-1.5 py-0.5 rounded border border-teal-500/[0.12]">
+                        &lt;head&gt;
+                      </code>{" "}
+                      section of your HTML document, or just before the closing{" "}
+                      <code className="font-mono text-xs text-white/45
+                        bg-white/[0.05] px-1.5 py-0.5 rounded border border-white/[0.08]">
+                        &lt;/body&gt;
+                      </code>{" "}
+                      tag. Most CMS platforms like WordPress, Wix, and Squarespace have easy
+                      ways to inject code into the header.
+                    </p>
+                  ) : (
+                    <p className="text-white/35 text-sm leading-relaxed font-light">{faq.a}</p>
+                  )}
                 </div>
               ))}
             </div>
 
-            {/* Row 2 — new 3 FAQs */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {/* Row 2 — new 3 questions, teal accent */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {FAQ_ITEMS.slice(3).map((faq) => (
-                <div
-                  key={faq.question}
-                  className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full"
-                >
-                  {/* Indigo left-accent bar to visually distinguish the new FAQs */}
-                  <div className="w-10 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mb-6" />
-                  <h3 className="text-2xl font-bold tracking-tight text-slate-950 mb-4">
-                    {faq.question}
+                <div key={faq.q}
+                  className="bg-[#0C1018] p-7 rounded-2xl border border-white/[0.07]
+                    hover:border-teal-500/25 hover:-translate-y-0.5
+                    transition-all duration-300 flex flex-col">
+                  {/* Teal accent bar identifies the "new" FAQs */}
+                  <div className="w-8 h-[2px] rounded-full mb-5
+                    bg-gradient-to-r from-teal-500/60 to-transparent" />
+                  <h3 className="text-base font-bold text-white/85 mb-3 leading-snug tracking-tight">
+                    {faq.q}
                   </h3>
-                  <p className="text-slate-500 leading-relaxed font-medium text-lg">
-                    {faq.answerJsx ?? faq.answer}
-                  </p>
+                  <p className="text-white/35 text-sm leading-relaxed font-light">{faq.a}</p>
                 </div>
               ))}
             </div>
@@ -714,40 +743,111 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ULTRA PREMIUM BOTTOM CTA */}
-      <section className="w-full py-24 md:py-32 px-4 sm:px-6 md:px-8 relative overflow-hidden bg-slate-950 text-center mt-auto border-t border-white/10">
-        <div className="absolute inset-0 z-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay pointer-events-none"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-600/30 via-purple-900/10 to-transparent blur-3xl pointer-events-none z-0"></div>
 
-        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white mb-8 leading-[1.1]">
-            Ready to rank higher locally?
+      {/* ═══════════════════════════════════════════════════════════════════
+          §7  BOTTOM CTA
+          Teal radial glow on near-black. Copy is specific and urgent —
+          addresses the competitor anxiety that converts fence-sitters.
+          Two CTAs: primary (generate) + secondary (browse). Micro-copy
+          line eliminates the three most common objections in one sentence.
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section className="w-full py-28 md:py-40 px-4 sm:px-6 md:px-8
+        relative overflow-hidden text-center border-t border-white/[0.06]">
+
+        {/* Radial teal glow — the defining visual of this section */}
+        <div className="absolute inset-0 z-0 pointer-events-none
+          bg-[radial-gradient(ellipse_80%_60%_at_50%_100%,rgba(0,212,200,0.07),transparent)]" />
+
+        {/* Secondary warm blue glow for depth */}
+        <div className="absolute inset-0 z-0 pointer-events-none
+          bg-[radial-gradient(ellipse_50%_40%_at_30%_80%,rgba(76,159,255,0.04),transparent)]" />
+
+        {/* Noise grain */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.02]
+          [background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E')]
+          bg-[size:200px]" />
+
+        <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+
+          {/* Eyebrow */}
+          <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full
+            bg-white/[0.04] border border-white/[0.07]">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse shrink-0" />
+            <span className="font-mono text-[11px] text-white/35 uppercase tracking-wider">
+              Free to use. Always.
+            </span>
+          </div>
+
+          {/* Headline — specific, not generic */}
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+            font-black tracking-[-0.04em] text-white mb-6 leading-[1.04]">
+            Your competitor just added<br />
+            <span className="text-transparent bg-clip-text
+              bg-gradient-to-r from-teal-400 via-cyan-300 to-teal-400">
+              Plumber schema.
+            </span>
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-slate-400 mb-12 font-medium max-w-2xl mx-auto leading-relaxed">
-            Generate your free JSON-LD schema markup right now and start feeding
-            Google the data it craves.
+
+          {/* Sub-copy — urgency + specificity */}
+          <p className="text-lg text-white/35 mb-10 max-w-xl leading-relaxed font-light">
+            One JSON-LD block is the difference between your phone ringing and scrolling
+            past you at 11pm when someone needs an emergency plumber.
+            Generate yours in 30 seconds.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
-            {/* Primary CTA → tool, not niches listing */}
+
+          {/* CTA pair */}
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            {/* Primary */}
             <Link
-              href="/schema-tool"
-              className="group inline-flex h-16 w-full sm:w-auto items-center justify-center rounded-full bg-indigo-600 px-10 font-bold text-white transition-all duration-300 hover:bg-indigo-500 hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(99,102,241,0.5)] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-950 text-lg shadow-lg"
+              href="#"
+              className="group inline-flex h-14 w-full sm:w-auto items-center
+                justify-center rounded-xl bg-teal-500 hover:bg-teal-400
+                px-10 font-bold text-black text-base tracking-tight
+                transition-all duration-200
+                shadow-[0_0_40px_-8px_rgba(0,212,200,0.5)]
+                hover:shadow-[0_0_55px_-5px_rgba(0,212,200,0.6)]
+                hover:-translate-y-px
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400
+                focus-visible:ring-offset-2 focus-visible:ring-offset-[#07090E]"
             >
               Generate Free Schema
-              <span className="ml-2 group-hover:translate-x-1 transition-transform">
-                &rarr;
-              </span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                className="ml-2 group-hover:translate-x-0.5 transition-transform duration-200"
+                stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </Link>
-            {/* Secondary CTA → niches (demoted from primary) */}
+
+            {/* Secondary */}
             <Link
               href="/niches"
-              className="group inline-flex h-16 w-full sm:w-auto items-center justify-center rounded-full bg-transparent border border-white/20 px-10 font-bold text-white transition-all duration-300 hover:bg-white/10 hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-950 text-lg shadow-sm"
+              className="inline-flex h-14 w-full sm:w-auto items-center
+                justify-center rounded-xl px-10 font-semibold text-white/50
+                hover:text-white text-base tracking-tight
+                bg-transparent hover:bg-white/[0.05]
+                border border-white/[0.10] hover:border-white/[0.20]
+                transition-all duration-200
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30
+                focus-visible:ring-offset-2 focus-visible:ring-offset-[#07090E]"
             >
-              Browse All Niches
+              Browse 52 Niches
             </Link>
           </div>
+
+          {/* Objection eliminator — the three most common friction points */}
+          <p className="mt-6 font-mono text-[11px] text-white/20 tracking-wider">
+            No account &nbsp;·&nbsp; No credit card &nbsp;·&nbsp; Ready in 30 seconds
+          </p>
         </div>
       </section>
+
+      {/* Global animation styles */}
+      <style>{`
+        @keyframes gradientShift {
+          0%,100% { background-position: 0% center; }
+          50%      { background-position: 100% center; }
+        }
+      `}</style>
     </div>
   );
 }

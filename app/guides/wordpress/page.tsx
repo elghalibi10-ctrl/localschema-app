@@ -62,7 +62,7 @@ export default function WordPressGuide() {
   };
 
   return (
-    <main className="w-full bg-[#FAFAFA] selection:bg-indigo-500/30 selection:text-indigo-900" id="main-content">
+    <main className="w-full bg-[#07090E] selection:bg-teal-500/25 selection:text-teal-100" id="main-content">
       {/* Schema Injection */}
       <script
         type="application/ld+json"
@@ -70,37 +70,37 @@ export default function WordPressGuide() {
       />
 
       {/* PREMIUM HERO SECTION */}
-      <section className="relative pt-32 pb-16 px-4 overflow-hidden border-b border-slate-200/60 bg-white">
+      <section className="relative pt-32 pb-16 px-4 overflow-hidden border-b border-white/[0.08] bg-[#0C1018]">
         <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-30 pointer-events-none z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-300/40 via-indigo-100/20 to-transparent blur-3xl"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-500/12 via-teal-500/5 to-transparent blur-3xl"></div>
         </div>
 
         <div className="max-w-3xl mx-auto relative z-10">
-          <nav className="flex mb-8 text-[13px] font-medium text-slate-500" aria-label="Breadcrumb">
-            <ol className="inline-flex items-center bg-slate-50 border border-slate-200/60 shadow-sm rounded-full px-4 py-2 backdrop-blur-md">
+          <nav className="flex mb-8 text-[13px] font-medium text-white/40" aria-label="Breadcrumb">
+            <ol className="inline-flex items-center bg-white/[0.04] border border-white/[0.08] shadow-sm rounded-full px-4 py-2 backdrop-blur-md">
               <li className="inline-flex items-center">
-                <Link href="/" className="hover:text-indigo-600 transition-colors">Home</Link>
+                <Link href="/" className="hover:text-teal-400 transition-colors">Home</Link>
               </li>
               <li>
                 <div className="flex items-center">
-                  <svg className="w-3 h-3 text-slate-300 mx-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/></svg>
-                  <span className="text-slate-900 font-bold">WordPress Guide</span>
+                  <svg className="w-3 h-3 text-white/20 mx-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/></svg>
+                  <span className="text-white/90 font-bold">WordPress Guide</span>
                 </div>
               </li>
             </ol>
           </nav>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-sm font-bold mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-500/[0.08] border border-sky-500/30 text-sky-300 text-sm font-bold mb-6 shadow-sm">
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.158 12.786l-2.698 2.81c-.526.547-1.464.218-1.464-.536V8.657c0-.77 1.012-1.077 1.487-.45l2.675 3.535v1.044z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1.875-6.66l4.248-4.425c.656-.684-1.826-2.585-2.513-1.874L7.613 13.467c-.684.712 1.83 2.586 2.512 1.873z"/></svg>
             WordPress SEO Tutorial
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-extrabold text-slate-950 mb-8 leading-[1.05] tracking-tighter">
-            How to Add Local Schema to WordPress <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 pb-2">Without Premium Plugins</span>
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-[1.05] tracking-tighter">
+            How to Add Local Schema to WordPress <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-300 pb-2">Without Premium Plugins</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-slate-500 leading-relaxed font-medium">
+          <p className="text-xl md:text-2xl text-white/40 leading-relaxed font-medium">
             You do not need to pay $99/year for a premium SEO plugin just to add basic JSON-LD to your site. Learn the exact step-by-step process to inject perfectly formatted local business schema into your WordPress website manually and safely.
           </p>
         </div>
@@ -109,38 +109,38 @@ export default function WordPressGuide() {
       {/* ARTICLE CONTENT */}
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         
-        <h2 className="text-3xl md:text-4xl text-slate-950 font-extrabold tracking-tighter mt-0 mb-6">
+        <h2 className="text-3xl md:text-4xl text-white font-extrabold tracking-tighter mt-0 mb-6">
           What is LocalBusiness Schema and Why Does it Matter?
         </h2>
-        <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium mb-6">
-          Before we dive into the technical implementation, let's understand why we're doing this. <strong className="text-slate-950">LocalBusiness Schema</strong> (specifically in the JSON-LD format) is a standardized vocabulary of code that search engines like Google use to understand your business's core data. 
+        <p className="text-lg md:text-xl text-white/55 leading-relaxed font-medium mb-6">
+          Before we dive into the technical implementation, let's understand why we're doing this. <strong className="text-white">LocalBusiness Schema</strong> (specifically in the JSON-LD format) is a standardized vocabulary of code that search engines like Google use to understand your business's core data.
         </p>
-        <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium mb-10">
+        <p className="text-lg md:text-xl text-white/55 leading-relaxed font-medium mb-10">
           Instead of forcing Google's crawlers to guess your phone number, business hours, and service areas by reading your paragraphs, JSON-LD feeds them this data directly. This is commonly referred to as your NAP data (Name, Address, Phone Number).
         </p>
         
-        <h3 className="text-2xl md:text-3xl text-slate-950 font-extrabold tracking-tighter mt-16 mb-6">
+        <h3 className="text-2xl md:text-3xl text-white font-extrabold tracking-tighter mt-16 mb-6">
           The Google Map Pack Connection
         </h3>
-        <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium mb-12">
-          If you want to rank in the highly coveted "Local 3-Pack" (the map results at the top of Google), consistency is key. By placing a valid, industry-specific schema tag (like <Link href="/generator/plumber" className="text-indigo-600 hover:text-indigo-800 transition-colors border-b border-indigo-200 hover:border-indigo-600 pb-0.5">Plumber Schema</Link> or <Link href="/generator/hvac" className="text-indigo-600 hover:text-indigo-800 transition-colors border-b border-indigo-200 hover:border-indigo-600 pb-0.5">HVAC Schema</Link>) in your WordPress header, you establish a massive trust signal with Google's local algorithm.
+        <p className="text-lg md:text-xl text-white/55 leading-relaxed font-medium mb-12">
+          If you want to rank in the highly coveted "Local 3-Pack" (the map results at the top of Google), consistency is key. By placing a valid, industry-specific schema tag (like <Link href="/generator/plumber" className="text-teal-400 hover:text-teal-300 transition-colors border-b border-teal-500/30 hover:border-teal-400 pb-0.5">Plumber Schema</Link> or <Link href="/generator/hvac" className="text-teal-400 hover:text-teal-300 transition-colors border-b border-teal-500/30 hover:border-teal-400 pb-0.5">HVAC Schema</Link>) in your WordPress header, you establish a massive trust signal with Google's local algorithm.
         </p>
 
-        <hr className="border-slate-200/60 my-16" />
+        <hr className="border-white/[0.08] my-16" />
 
-        <h2 className="text-3xl md:text-4xl text-slate-950 font-extrabold tracking-tighter mt-16 mb-6">
+        <h2 className="text-3xl md:text-4xl text-white font-extrabold tracking-tighter mt-16 mb-6">
           Step 1: Generate Your Custom JSON-LD Code
         </h2>
-        <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium mb-8">
+        <p className="text-lg md:text-xl text-white/55 leading-relaxed font-medium mb-8">
           Writing JSON-LD from scratch is tedious and highly prone to syntax errors (a single missing comma will break the entire script). Instead, we will use a dedicated generator.
         </p>
 
-        <ol className="list-decimal pl-6 space-y-5 text-lg md:text-xl text-slate-600 font-medium mb-12 marker:text-indigo-500 marker:font-bold">
-          <li className="pl-2">Go to our <Link href="/niches" className="text-indigo-600 hover:text-indigo-800 transition-colors border-b border-indigo-200 hover:border-indigo-600 pb-0.5">Schema Generator Directory</Link>.</li>
-          <li className="pl-2">Select your exact industry. <em className="text-slate-500 italic">Do not settle for generic "LocalBusiness" if a more specific category like "Electrician" or "RoofingContractor" exists for your niche.</em></li>
+        <ol className="list-decimal pl-6 space-y-5 text-lg md:text-xl text-white/55 font-medium mb-12 marker:text-teal-400 marker:font-bold">
+          <li className="pl-2">Go to our <Link href="/niches" className="text-teal-400 hover:text-teal-300 transition-colors border-b border-teal-500/30 hover:border-teal-400 pb-0.5">Schema Generator Directory</Link>.</li>
+          <li className="pl-2">Select your exact industry. <em className="text-white/40 italic">Do not settle for generic "LocalBusiness" if a more specific category like "Electrician" or "RoofingContractor" exists for your niche.</em></li>
           <li className="pl-2">Fill out the form with your exact Business Name, Phone Number, Website, and Address.</li>
-          <li className="pl-2"><strong className="text-slate-950">Crucial step for Mobile Businesses:</strong> If you travel to your customers and hide your address on your Google Business Profile, ensure you toggle the <em className="italic text-slate-950">"Service Area Business"</em> option. This removes the street address from the code to keep you compliant. Read our full <Link href="/guides/service-area-business" className="text-indigo-600 hover:text-indigo-800 transition-colors border-b border-indigo-200 hover:border-indigo-600 pb-0.5">Service Area Business guide</Link> for more on this.</li>
-          <li className="pl-2">Click <strong className="text-slate-950">Copy Code</strong>.</li>
+          <li className="pl-2"><strong className="text-white">Crucial step for Mobile Businesses:</strong> If you travel to your customers and hide your address on your Google Business Profile, ensure you toggle the <em className="italic text-white">"Service Area Business"</em> option. This removes the street address from the code to keep you compliant. Read our full <Link href="/guides/service-area-business" className="text-teal-400 hover:text-teal-300 transition-colors border-b border-teal-500/30 hover:border-teal-400 pb-0.5">Service Area Business guide</Link> for more on this.</li>
+          <li className="pl-2">Click <strong className="text-white">Copy Code</strong>.</li>
         </ol>
 
         {/* Premium Terminal Block */}
@@ -171,73 +171,73 @@ export default function WordPressGuide() {
           </div>
         </div>
 
-        <hr className="border-slate-200/60 my-16" />
+        <hr className="border-white/[0.08] my-16" />
 
-        <h2 className="text-3xl md:text-4xl text-slate-950 font-extrabold tracking-tighter mt-16 mb-6">
+        <h2 className="text-3xl md:text-4xl text-white font-extrabold tracking-tighter mt-16 mb-6">
           Step 2: Choose Your Injection Method
         </h2>
-        <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium mb-10">
-          Now that you have your code copied to your clipboard, you need to paste it into your WordPress website. Google recommends placing this script in the <code className="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded-md text-sm border border-slate-200 font-mono">&lt;head&gt;</code> section of your site. Here are the three best ways to do this.
+        <p className="text-lg md:text-xl text-white/55 leading-relaxed font-medium mb-10">
+          Now that you have your code copied to your clipboard, you need to paste it into your WordPress website. Google recommends placing this script in the <code className="bg-white/[0.06] text-white/80 px-1.5 py-0.5 rounded-md text-sm border border-white/[0.08] font-mono">&lt;head&gt;</code> section of your site. Here are the three best ways to do this.
         </p>
 
-        <h3 className="text-2xl md:text-3xl text-slate-950 font-extrabold tracking-tighter mt-16 mb-6">
+        <h3 className="text-2xl md:text-3xl text-white font-extrabold tracking-tighter mt-16 mb-6">
           Method A: Using a Lightweight Header Plugin (Recommended for Beginners)
         </h3>
-        <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium mb-8">
+        <p className="text-lg md:text-xl text-white/55 leading-relaxed font-medium mb-8">
           While we aren't using an expensive SEO plugin, the safest way to add code to your header without breaking your theme when it updates is by using a dedicated, lightweight snippet plugin.
         </p>
-        
-        <ol className="list-decimal pl-6 space-y-4 text-lg md:text-xl text-slate-600 font-medium mb-12 marker:text-indigo-500 marker:font-bold">
+
+        <ol className="list-decimal pl-6 space-y-4 text-lg md:text-xl text-white/55 font-medium mb-12 marker:text-teal-400 marker:font-bold">
           <li className="pl-2">Log in to your WordPress Dashboard.</li>
-          <li className="pl-2">Navigate to <strong className="text-slate-950">Plugins &gt; Add New</strong> in the left sidebar.</li>
-          <li className="pl-2">Search for <strong className="text-slate-950">"WPCode"</strong> (previously Insert Headers and Footers).</li>
-          <li className="pl-2">Click <strong className="text-slate-950">Install Now</strong>, then <strong className="text-slate-950">Activate</strong>.</li>
-          <li className="pl-2">In your left sidebar, you will now see a menu item called <strong className="text-slate-950">Code Snippets</strong>. Click on <strong className="text-slate-950">Header &amp; Footer</strong>.</li>
-          <li className="pl-2">In the "Global Header and Footer" settings, locate the <strong className="text-slate-950">Header</strong> text area.</li>
+          <li className="pl-2">Navigate to <strong className="text-white">Plugins &gt; Add New</strong> in the left sidebar.</li>
+          <li className="pl-2">Search for <strong className="text-white">"WPCode"</strong> (previously Insert Headers and Footers).</li>
+          <li className="pl-2">Click <strong className="text-white">Install Now</strong>, then <strong className="text-white">Activate</strong>.</li>
+          <li className="pl-2">In your left sidebar, you will now see a menu item called <strong className="text-white">Code Snippets</strong>. Click on <strong className="text-white">Header &amp; Footer</strong>.</li>
+          <li className="pl-2">In the "Global Header and Footer" settings, locate the <strong className="text-white">Header</strong> text area.</li>
           <li className="pl-2">Paste your copied JSON-LD script directly into this box.</li>
-          <li className="pl-2">Click <strong className="text-slate-950">Save Changes</strong>.</li>
+          <li className="pl-2">Click <strong className="text-white">Save Changes</strong>.</li>
         </ol>
 
-        <h3 className="text-2xl md:text-3xl text-slate-950 font-extrabold tracking-tighter mt-16 mb-6">
+        <h3 className="text-2xl md:text-3xl text-white font-extrabold tracking-tighter mt-16 mb-6">
           Method B: Using Elementor Pro or Theme Builders
         </h3>
-        <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium mb-8">
+        <p className="text-lg md:text-xl text-white/55 leading-relaxed font-medium mb-8">
           If you are using a visual builder like Elementor Pro, Divi, or GeneratePress Premium, you do not need to install an extra plugin.
         </p>
-        <ul className="list-none space-y-5 text-lg md:text-xl text-slate-600 font-medium mb-12 pl-0">
-          <li className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+        <ul className="list-none space-y-5 text-lg md:text-xl text-white/55 font-medium mb-12 pl-0">
+          <li className="flex items-start gap-4 p-5 bg-[#0C1018] rounded-2xl border border-white/[0.08] shadow-sm">
             <div className="mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-blue-500"></div>
             <div>
-              <strong className="text-slate-950 tracking-tight block mb-1">Elementor Pro:</strong> 
-              Go to <em className="italic">Elementor &gt; Custom Code</em>. Click "Add New". Name it "Local Schema", set the location to <code className="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded-md text-sm border border-slate-200 font-mono">&lt;head&gt;</code>, paste your code, and set the condition to "Entire Site".
+              <strong className="text-white tracking-tight block mb-1">Elementor Pro:</strong>
+              Go to <em className="italic">Elementor &gt; Custom Code</em>. Click "Add New". Name it "Local Schema", set the location to <code className="bg-white/[0.06] text-white/80 px-1.5 py-0.5 rounded-md text-sm border border-white/[0.08] font-mono">&lt;head&gt;</code>, paste your code, and set the condition to "Entire Site".
             </div>
           </li>
-          <li className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+          <li className="flex items-start gap-4 p-5 bg-[#0C1018] rounded-2xl border border-white/[0.08] shadow-sm">
             <div className="mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-purple-500"></div>
             <div>
-              <strong className="text-slate-950 tracking-tight block mb-1">Divi:</strong> 
+              <strong className="text-white tracking-tight block mb-1">Divi:</strong>
               Go to <em className="italic">Divi &gt; Theme Options &gt; Integration</em>. Paste the code into the "Add code to the &lt;head&gt; of your blog" box.
             </div>
           </li>
-          <li className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+          <li className="flex items-start gap-4 p-5 bg-[#0C1018] rounded-2xl border border-white/[0.08] shadow-sm">
             <div className="mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-indigo-500"></div>
             <div>
-              <strong className="text-slate-950 tracking-tight block mb-1">GeneratePress:</strong> 
-              Use the <em className="italic">Elements</em> module. Create a new "Hook", select the <code className="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded-md text-sm border border-slate-200 font-mono">wp_head</code> hook, paste your code, and apply the display rule to the Entire Site.
+              <strong className="text-white tracking-tight block mb-1">GeneratePress:</strong>
+              Use the <em className="italic">Elements</em> module. Create a new "Hook", select the <code className="bg-white/[0.06] text-white/80 px-1.5 py-0.5 rounded-md text-sm border border-white/[0.08] font-mono">wp_head</code> hook, paste your code, and apply the display rule to the Entire Site.
             </div>
           </li>
         </ul>
 
-        <h3 className="text-2xl md:text-3xl text-slate-950 font-extrabold tracking-tighter mt-16 mb-6">
+        <h3 className="text-2xl md:text-3xl text-white font-extrabold tracking-tighter mt-16 mb-6">
           Method C: Editing functions.php (Advanced)
         </h3>
-        <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium mb-8">
-          If you are a developer and prefer a plugin-free approach, you can inject the code directly via your child theme's <code className="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded-md text-sm border border-slate-200 font-mono">functions.php</code> file. <em className="italic text-slate-500">Warning: Always back up your site before editing PHP files.</em>
+        <p className="text-lg md:text-xl text-white/55 leading-relaxed font-medium mb-8">
+          If you are a developer and prefer a plugin-free approach, you can inject the code directly via your child theme's <code className="bg-white/[0.06] text-white/80 px-1.5 py-0.5 rounded-md text-sm border border-white/[0.08] font-mono">functions.php</code> file. <em className="italic text-white/40">Warning: Always back up your site before editing PHP files.</em>
         </p>
 
         {/* Premium Terminal Block for PHP */}
         <div className="relative group my-10">
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-[2rem] blur opacity-20 transition duration-1000"></div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-cyan-300 rounded-[2rem] blur opacity-20 transition duration-1000"></div>
           <div className="relative bg-[#0A0A0A] rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
             <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-[#111111]">
               <div className="flex items-center gap-2">
@@ -266,18 +266,18 @@ export default function WordPressGuide() {
           </div>
         </div>
 
-        <hr className="border-slate-200/60 my-16" />
+        <hr className="border-white/[0.08] my-16" />
 
-        <h2 className="text-3xl md:text-4xl text-slate-950 font-extrabold tracking-tighter mt-16 mb-6">
+        <h2 className="text-3xl md:text-4xl text-white font-extrabold tracking-tighter mt-16 mb-6">
           Step 3: Test and Validate Your Schema
         </h2>
-        <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium mb-8">
+        <p className="text-lg md:text-xl text-white/55 leading-relaxed font-medium mb-8">
           Never assume your code is working perfectly just because you pasted it. You must validate it using Google's official tools.
         </p>
 
-        <ol className="list-decimal pl-6 space-y-4 text-lg md:text-xl text-slate-600 font-medium mb-12 marker:text-indigo-500 marker:font-bold">
-          <li className="pl-2">Go to the <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-800 transition-colors border-b border-indigo-200 hover:border-indigo-600 pb-0.5">Google Rich Results Test</a>.</li>
-          <li className="pl-2">Enter your website's URL (e.g., <code className="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded-md text-sm border border-slate-200 font-mono">https://yourwebsite.com</code>) and click <strong className="text-slate-950">Test URL</strong>.</li>
+        <ol className="list-decimal pl-6 space-y-4 text-lg md:text-xl text-white/55 font-medium mb-12 marker:text-teal-400 marker:font-bold">
+          <li className="pl-2">Go to the <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:text-teal-300 transition-colors border-b border-teal-500/30 hover:border-teal-400 pb-0.5">Google Rich Results Test</a>.</li>
+          <li className="pl-2">Enter your website's URL (e.g., <code className="bg-white/[0.06] text-white/80 px-1.5 py-0.5 rounded-md text-sm border border-white/[0.08] font-mono">https://yourwebsite.com</code>) and click <strong className="text-white">Test URL</strong>.</li>
           <li className="pl-2">Wait a minute or two for Google's bot to crawl your live page.</li>
           <li className="pl-2">Look for a green checkmark indicating <strong className="text-emerald-600">"1 valid item detected"</strong> under the LocalBusiness or specific industry tab.</li>
         </ol>
@@ -297,27 +297,27 @@ export default function WordPressGuide() {
           </div>
         </div>
 
-        <hr className="border-slate-200/60 my-16" />
+        <hr className="border-white/[0.08] my-16" />
 
-        <h2 className="text-3xl md:text-4xl text-slate-950 font-extrabold tracking-tighter mt-16 mb-8">
+        <h2 className="text-3xl md:text-4xl text-white font-extrabold tracking-tighter mt-16 mb-8">
           Frequently Asked Questions
         </h2>
-        
+
         <div className="space-y-10">
-          <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200/60 shadow-sm">
-            <h3 className="text-2xl font-extrabold tracking-tighter text-slate-950 mb-4">
+          <div className="bg-[#0C1018] p-8 md:p-10 rounded-3xl border border-white/[0.08] shadow-sm">
+            <h3 className="text-2xl font-extrabold tracking-tighter text-white mb-4">
               Do I need a premium SEO plugin to add schema?
             </h3>
-            <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium mb-0">
+            <p className="text-lg md:text-xl text-white/55 leading-relaxed font-medium mb-0">
               No. Premium plugins like Yoast or RankMath Pro charge yearly fees for advanced local schema features. You can generate the exact same JSON-LD structured data for free using our tools and inject it manually.
             </p>
           </div>
-          
-          <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200/60 shadow-sm">
-            <h3 className="text-2xl font-extrabold tracking-tighter text-slate-950 mb-4">
+
+          <div className="bg-[#0C1018] p-8 md:p-10 rounded-3xl border border-white/[0.08] shadow-sm">
+            <h3 className="text-2xl font-extrabold tracking-tighter text-white mb-4">
               Should the schema be on every page?
             </h3>
-            <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium mb-0">
+            <p className="text-lg md:text-xl text-white/55 leading-relaxed font-medium mb-0">
               Yes, it is standard practice to place your core LocalBusiness or Organization schema in the global header so it populates across your entire site, reinforcing your local relevance on every page.
             </p>
           </div>
@@ -333,7 +333,7 @@ export default function WordPressGuide() {
 
         <div className="relative z-10 max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-white mb-8">Ready to rank your WordPress site?</h2>
-          <p className="text-xl md:text-2xl text-slate-400 mb-12 font-medium max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-white/35 mb-12 font-medium max-w-2xl mx-auto">
             Now that you know how to add it, it's time to generate your perfectly formatted JSON-LD code. Choose from over 50 specific industries.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">

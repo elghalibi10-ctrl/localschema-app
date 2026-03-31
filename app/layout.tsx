@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#fafafa",
+  themeColor: "#07090E",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -130,7 +130,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#FAFAFA] text-slate-950 font-sans selection:bg-indigo-500/30 selection:text-indigo-900">
+      <body className="min-h-full flex flex-col bg-[#07090E] text-white font-sans selection:bg-teal-500/25 selection:text-teal-100">
         
         {/* GLOBAL HEADER - Now powered by the Navbar Client Component */}
         <Navbar />
