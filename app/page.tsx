@@ -109,7 +109,7 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full flex flex-col items-center overflow-hidden bg-white dark:bg-[#07090E]">
+    <div className="w-full flex flex-col items-center bg-white dark:bg-[#07090E]">
       {/* Structured data — untouched */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
@@ -192,7 +192,7 @@ export default function Home() {
         </div>
 
         {/* SchemaTool wrapper */}
-        <div className="relative z-20 max-w-7xl mx-auto w-full">
+        <div id="generator" className="relative z-20 max-w-7xl mx-auto w-full">
           <div className="relative rounded-2xl p-px
             bg-gradient-to-br from-teal-500/30 via-sky-500/10 to-purple-500/20
             shadow-[0_0_80px_-20px_rgba(0,212,200,0.18),0_0_0_1px_rgba(255,255,255,0.03)]
@@ -790,7 +790,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════════
           §7  BOTTOM CTA
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="w-full py-28 md:py-40 px-4 sm:px-6 md:px-8
+      <section className="w-full py-20 px-4 sm:px-6 md:px-8
         relative overflow-hidden text-center
         border-t border-slate-200 dark:border-white/[0.06]">
 
@@ -839,7 +839,7 @@ export default function Home() {
 
           {/* CTA pair */}
           <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-            <Link href="#"
+            <a href="#generator"
               className="group inline-flex h-14 w-full sm:w-auto items-center
                 justify-center rounded-xl bg-teal-500 hover:bg-teal-400
                 px-10 font-bold text-black text-base tracking-tight
@@ -855,7 +855,7 @@ export default function Home() {
                 stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </Link>
+            </a>
 
             <Link href="/niches"
               className="inline-flex h-14 w-full sm:w-auto items-center

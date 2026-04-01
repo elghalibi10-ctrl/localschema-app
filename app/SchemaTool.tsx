@@ -146,9 +146,9 @@ function CustomSelect({ id, value, options, onValueChange, placeholder = "Select
         className="w-full flex items-center justify-between gap-2
           h-[52px] px-4 rounded-xl border text-sm text-left shadow-sm
           transition-all duration-200 outline-none
-          bg-white border-slate-200/80 text-slate-900
+          bg-white border-slate-200 text-slate-900
           focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/15
-          dark:bg-[#111111] dark:border-white/10 dark:text-white
+          dark:bg-[#0A0A0A] dark:border-white/10 dark:text-white
           dark:focus:border-indigo-500 dark:focus:ring-indigo-500/20"
       >
         <span className="truncate text-slate-700 dark:text-white/85">{selectedLabel}</span>
@@ -170,7 +170,7 @@ function CustomSelect({ id, value, options, onValueChange, placeholder = "Select
           className="absolute z-50 w-full mt-1.5
             rounded-xl border shadow-2xl overflow-hidden
             bg-white border-slate-200
-            dark:bg-[#111620] dark:border-white/[0.10]
+            dark:bg-[#111111] dark:border-white/10
             dark:shadow-[0_24px_60px_-10px_rgba(0,0,0,0.7)]"
         >
           <ul
@@ -434,17 +434,17 @@ export default function SchemaTool({
 
   // ── Shared input classes ───────────────────────────────────────────────────
   const inputCls =
-    "w-full h-[52px] rounded-xl border border-slate-200/80 bg-white px-4 text-sm text-slate-900 shadow-sm " +
+    "w-full h-[52px] rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-900 shadow-sm " +
     "transition-all duration-200 placeholder:text-slate-400 " +
     "focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/15 " +
-    "dark:bg-[#111111] dark:border-white/10 dark:text-white dark:placeholder:text-slate-600 " +
+    "dark:bg-[#0A0A0A] dark:border-white/10 dark:text-white dark:placeholder:text-slate-600 " +
     "dark:focus:border-indigo-500 dark:focus:ring-indigo-500/20";
 
   const inputErrCls =
     "w-full h-[52px] rounded-xl border border-red-300 bg-white px-4 text-sm text-slate-900 shadow-sm " +
     "transition-all duration-200 placeholder:text-slate-400 " +
     "focus:border-red-400 focus:outline-none focus:ring-4 focus:ring-red-500/15 " +
-    "dark:bg-[#111111] dark:border-red-500/40 dark:text-white dark:placeholder:text-slate-600 " +
+    "dark:bg-[#0A0A0A] dark:border-red-500/40 dark:text-white dark:placeholder:text-slate-600 " +
     "dark:focus:border-red-400/60 dark:focus:ring-red-500/20";
 
   const labelCls =
@@ -646,14 +646,14 @@ export default function SchemaTool({
       ══════════════════════════════════════════════════════════════════════ */}
       <div className="rounded-2xl border overflow-hidden
         border-slate-200 shadow-sm
-        dark:border-white/[0.07] dark:shadow-[0_0_80px_-20px_rgba(0,212,200,0.12),0_0_0_1px_rgba(255,255,255,0.04)]
-        bg-white dark:bg-[#0C1018]">
+        dark:border-white/10 dark:shadow-[0_0_80px_-20px_rgba(0,212,200,0.12),0_0_0_1px_rgba(255,255,255,0.04)]
+        bg-white dark:bg-[#111111]">
 
         {/* ── Header bar ──────────────────────────────────────────────────── */}
         <div className="flex items-center justify-between
           px-6 py-3.5 border-b
           bg-slate-50 border-slate-200
-          dark:bg-[#080B11] dark:border-white/[0.07]">
+          dark:bg-[#0A0A0A] dark:border-white/10">
 
           {/* Live indicator */}
           <div className="flex items-center gap-2.5">
@@ -698,13 +698,13 @@ export default function SchemaTool({
         {/* ── Two-panel body ────────────────────────────────────────────────── */}
         <div className="grid grid-cols-1 lg:grid-cols-[55%_45%]
           divide-y lg:divide-y-0 lg:divide-x
-          divide-slate-200 dark:divide-white/[0.07]">
+          divide-slate-200 dark:divide-white/10">
 
           {/* ════════════════════════════════════════════════════════════════
               LEFT PANEL — Input form
           ════════════════════════════════════════════════════════════════ */}
           <div className="overflow-y-auto lg:max-h-[740px] custom-scrollbar
-            p-7 space-y-8 bg-white dark:bg-[#0C1018]">
+            p-7 space-y-8 bg-white dark:bg-[#111111]">
 
             {/* ── Section 1: Business Details ──────────────────────────── */}
             <div>
@@ -712,11 +712,11 @@ export default function SchemaTool({
                 <span className="shrink-0 w-5 h-5 rounded-md flex items-center justify-center
                   font-mono text-[9px] select-none
                   bg-slate-100 border border-slate-200 text-slate-400
-                  dark:bg-white/[0.04] dark:border-white/[0.07] dark:text-white/25">
+                  dark:bg-white/[0.06] dark:border-white/10 dark:text-white/40">
                   01
                 </span>
                 <span className="text-[11px] font-semibold uppercase tracking-[0.14em]
-                  text-slate-500 dark:text-white/45">
+                  text-slate-500 dark:text-slate-400">
                   Business Details
                 </span>
                 <div className="flex-1 h-px bg-slate-200 dark:bg-white/[0.05]" />
@@ -801,9 +801,9 @@ export default function SchemaTool({
                     placeholder="e.g., Award-winning plumbing services in Austin, TX"
                     className="w-full rounded-xl px-4 py-3 text-sm border resize-none shadow-sm
                       transition-all duration-200 focus:outline-none
-                      border-slate-200/80 bg-white text-slate-900 placeholder:text-slate-400
+                      border-slate-200 bg-white text-slate-900 placeholder:text-slate-400
                       focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/15
-                      dark:bg-[#111111] dark:border-white/10 dark:text-white
+                      dark:bg-[#0A0A0A] dark:border-white/10 dark:text-white
                       dark:placeholder:text-slate-600 dark:focus:border-indigo-500 dark:focus:ring-indigo-500/20"
                   />
                 </div>
@@ -817,11 +817,11 @@ export default function SchemaTool({
                 <span className="shrink-0 w-5 h-5 rounded-md flex items-center justify-center
                   font-mono text-[9px] select-none
                   bg-slate-100 border border-slate-200 text-slate-400
-                  dark:bg-white/[0.04] dark:border-white/[0.07] dark:text-white/25">
+                  dark:bg-white/[0.06] dark:border-white/10 dark:text-white/40">
                   02
                 </span>
                 <span className="text-[11px] font-semibold uppercase tracking-[0.14em]
-                  text-slate-500 dark:text-white/45">
+                  text-slate-500 dark:text-slate-400">
                   Location &amp; Contact
                 </span>
                 <div className="flex-1 h-px bg-slate-200 dark:bg-white/[0.05]" />
@@ -1007,7 +1007,7 @@ export default function SchemaTool({
                       transition-all duration-200 focus:outline-none
                       bg-white border-teal-300 text-slate-900 placeholder:text-slate-400
                       focus:border-teal-500 focus:ring-4 focus:ring-teal-500/15
-                      dark:bg-[#111111] dark:border-teal-500/20 dark:text-white
+                      dark:bg-[#0A0A0A] dark:border-teal-500/20 dark:text-white
                       dark:placeholder:text-slate-600 dark:focus:border-teal-500/50 dark:focus:ring-teal-500/15"
                   />
                 </div>
@@ -1016,15 +1016,15 @@ export default function SchemaTool({
 
             {/* ── Section 4: Advanced Accordion ────────────────────────── */}
             <div className="rounded-xl border overflow-hidden
-              border-slate-200 dark:border-white/[0.07]">
+              border-slate-200 dark:border-white/10">
               <button
                 type="button"
                 onClick={() => setShowAdvanced(!showAdvanced)}
                 className={`w-full flex items-center justify-between px-5 py-4
                   transition-colors duration-200 focus:outline-none group ${
                     showAdvanced
-                      ? "bg-slate-100/70 dark:bg-white/[0.04]"
-                      : "bg-slate-50 hover:bg-slate-100/70 dark:bg-white/[0.02] dark:hover:bg-white/[0.04]"
+                      ? "bg-slate-100 dark:bg-white/[0.05]"
+                      : "bg-slate-50 hover:bg-slate-100 dark:bg-[#0A0A0A] dark:hover:bg-white/[0.04]"
                   }`}
               >
                 <div className="flex items-center gap-3">
@@ -1068,11 +1068,11 @@ export default function SchemaTool({
 
               <div className={`transition-all duration-500 ease-in-out border-t ${
                 showAdvanced
-                  ? "max-h-64 opacity-100 border-slate-200 dark:border-white/[0.06]"
+                  ? "max-h-64 opacity-100 border-slate-200 dark:border-white/10"
                   : "max-h-0 opacity-0 overflow-hidden border-t-0"
               }`}>
                 <div className="p-5 grid grid-cols-1 sm:grid-cols-2 gap-4
-                  bg-slate-50/50 dark:bg-white/[0.015]">
+                  bg-slate-50 dark:bg-[#111111]">
 
                   <div>
                     <Label htmlFor="tool-priceRange" className={labelCls}>Price Range</Label>
@@ -1103,9 +1103,9 @@ export default function SchemaTool({
                       placeholder="e.g., https://facebook.com/yourbiz, https://instagram.com/yourbiz"
                       className="w-full rounded-xl px-4 py-3 text-sm border resize-none shadow-sm
                         transition-all duration-200 focus:outline-none
-                        border-slate-200/80 bg-white text-slate-900 placeholder:text-slate-400
+                        border-slate-200 bg-white text-slate-900 placeholder:text-slate-400
                         focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/15
-                        dark:bg-[#111111] dark:border-white/10 dark:text-white
+                        dark:bg-[#0A0A0A] dark:border-white/10 dark:text-white
                         dark:placeholder:text-slate-600 dark:focus:border-indigo-500 dark:focus:ring-indigo-500/20"
                     />
                   </div>

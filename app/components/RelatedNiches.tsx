@@ -34,22 +34,24 @@ export default function RelatedNiches({ currentNiche, relatedNiches }: RelatedNi
     <nav aria-label="Related Schema Generators" className="relative z-10">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
         <div>
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-teal-400/60 mb-3">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-teal-600 dark:text-teal-400/60 mb-3">
             Related Tools
           </p>
-          <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white mb-2 leading-tight">
+          <h2 className="text-2xl md:text-3xl font-black tracking-tight text-slate-900 dark:text-white mb-2 leading-tight">
             Related Schema Generators
           </h2>
-          <p className="text-white/35 font-light text-base max-w-xl">
+          <p className="text-slate-500 dark:text-slate-400 font-light text-base max-w-xl">
             Explore other industry-specific structured data tools to boost local rankings.
           </p>
         </div>
         <Link
           href="/niches"
           className="inline-flex h-11 items-center justify-center rounded-xl
-            bg-white/[0.05] border border-white/[0.10] px-5
-            font-semibold text-sm text-white/65
-            hover:text-white hover:bg-white/[0.09] hover:border-white/[0.18]
+            bg-slate-100 border border-slate-200 px-5
+            font-semibold text-sm text-slate-600
+            hover:text-slate-900 hover:bg-slate-200 hover:border-slate-300
+            dark:bg-white/[0.05] dark:border-white/10 dark:text-white/65
+            dark:hover:text-white dark:hover:bg-white/[0.09] dark:hover:border-white/[0.18]
             transition-all duration-150 outline-none
             focus-visible:ring-2 focus-visible:ring-teal-500 group shrink-0"
         >
@@ -64,24 +66,27 @@ export default function RelatedNiches({ currentNiche, relatedNiches }: RelatedNi
             key={niche.id}
             href={`/generator/${niche.id}`}
             className="group flex items-center p-4 rounded-xl
-              bg-white/[0.04] border border-white/[0.07]
-              hover:bg-white/[0.07] hover:border-teal-500/25
+              bg-slate-50 border border-slate-200
+              hover:bg-slate-100 hover:border-teal-500/25
+              dark:bg-white/[0.04] dark:border-white/10
+              dark:hover:bg-white/[0.07] dark:hover:border-teal-500/25
               hover:-translate-y-px
               transition-all duration-200 outline-none
               focus-visible:ring-2 focus-visible:ring-teal-500"
           >
             <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mr-4
-              bg-white/[0.05] border border-white/[0.07]
+              bg-slate-100 border border-slate-200
+              dark:bg-white/[0.05] dark:border-white/10
               group-hover:bg-teal-500/[0.08] group-hover:border-teal-500/[0.20]
               transition-all duration-200 flex-shrink-0">
               {niche.icon}
             </div>
             <div className="text-left flex-grow overflow-hidden">
-              <h3 className="font-bold tracking-tight text-white/80 text-[14px]
-                group-hover:text-white transition-colors truncate">
+              <h3 className="font-bold tracking-tight text-slate-800 dark:text-white/80 text-[14px]
+                group-hover:text-slate-900 dark:group-hover:text-white transition-colors truncate">
                 {niche.name} Schema
               </h3>
-              <p className="text-[10px] text-white/25 font-mono mt-0.5 truncate uppercase tracking-wider"
+              <p className="text-[10px] text-slate-400 dark:text-white/25 font-mono mt-0.5 truncate uppercase tracking-wider"
                 title={niche.schemaType}>
                 {niche.schemaType}
               </p>

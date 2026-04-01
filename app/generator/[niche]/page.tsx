@@ -183,12 +183,12 @@ export default async function NicheGeneratorPage({ params }: Props) {
   // 404 state — graceful, internal-linking preserved
   if (!nicheData) {
     return (
-      <div className="flex-grow flex flex-col items-center justify-center p-8 text-center min-h-[60vh] bg-white dark:bg-[#07090E]">
-        <div className="bg-slate-50 dark:bg-[#0C1018] p-12 rounded-[2rem] border border-slate-200 dark:border-white/[0.08] shadow-sm dark:shadow-[0_8px_40px_rgba(0,0,0,0.4)] max-w-xl w-full">
+      <div className="flex-grow flex flex-col items-center justify-center p-8 text-center min-h-[60vh] bg-white dark:bg-[#0A0A0A]">
+        <div className="bg-slate-50 dark:bg-[#111111] p-12 rounded-[2rem] border border-slate-200 dark:border-white/[0.08] shadow-sm dark:shadow-[0_8px_40px_rgba(0,0,0,0.4)] max-w-xl w-full">
           <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white mb-4">
             Schema Generator Not Found
           </h1>
-          <p className="text-slate-500 dark:text-white/40 mb-8">
+          <p className="text-slate-500 dark:text-slate-400 mb-8">
             We couldn&apos;t find a specialized generator for that industry.
           </p>
           <Link
@@ -337,7 +337,7 @@ export default async function NicheGeneratorPage({ params }: Props) {
   // ---------------------------------------------------------------------------
   return (
     <main
-      className="w-full bg-white dark:bg-[#07090E] selection:bg-teal-500/25 selection:text-teal-700 dark:selection:text-teal-100"
+      className="w-full bg-white dark:bg-[#0A0A0A] selection:bg-teal-500/25 selection:text-teal-700 dark:selection:text-teal-100"
       id="main-content"
     >
       {/* Schema injection — single @graph per page, no duplicate @context */}
@@ -362,7 +362,7 @@ export default async function NicheGeneratorPage({ params }: Props) {
           >
             <ol className="inline-flex items-center
               bg-slate-100 border border-slate-200 text-slate-500
-              dark:bg-white/[0.04] dark:border-white/[0.08] dark:text-white/40
+              dark:bg-white/[0.04] dark:border-white/[0.08] dark:text-slate-400
               rounded-full px-4 py-2 backdrop-blur-md">
               <li className="inline-flex items-center">
                 <Link href="/" className="hover:text-slate-900 dark:hover:text-white transition-colors">Home</Link>
@@ -399,7 +399,7 @@ export default async function NicheGeneratorPage({ params }: Props) {
             <h1 className="text-5xl md:text-6xl font-black tracking-[-0.04em] mb-6 text-slate-900 dark:text-white leading-[1.04]">
               {nicheData.name} Schema Generator
             </h1>
-            <p className="text-lg md:text-xl text-slate-500 dark:text-white/40 leading-relaxed font-light">
+            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-light">
               {nicheData.seoParagraph} Fill out the form below to generate your
               highly-optimized, valid{" "}
               <strong className="text-teal-600 dark:text-teal-400 bg-teal-500/[0.08] px-1.5 py-0.5 rounded-md text-sm border border-teal-500/[0.16] font-mono not-italic">
@@ -424,7 +424,7 @@ export default async function NicheGeneratorPage({ params }: Props) {
           each of the 52 generator pages substantively different from one
           another in Google's eyes.
       ================================================================ */}
-      <section className="py-24 bg-white dark:bg-[#07090E] border-t border-slate-200 dark:border-white/[0.07] relative">
+      <section className="py-24 bg-white dark:bg-[#0A0A0A] border-t border-slate-200 dark:border-white/10 relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28">
 
           {/* ----------------------------------------------------------
@@ -440,13 +440,13 @@ export default async function NicheGeneratorPage({ params }: Props) {
               <div className="space-y-4">
                 <div className="group flex gap-5 items-start
                   bg-white border border-slate-200 shadow-sm
-                  dark:bg-[#0C1018] dark:border-white/[0.07] dark:shadow-none
+                  dark:bg-[#111111] dark:border-white/10 dark:shadow-none
                   p-7 rounded-2xl
                   hover:-translate-y-px hover:border-teal-500/20
                   hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)]
                   transition-all duration-300">
                   <div className="bg-slate-100 text-slate-500 dark:bg-white/[0.05] dark:text-white/60
-                    font-black w-11 h-11 rounded-xl border border-slate-200 dark:border-white/[0.07]
+                    font-black w-11 h-11 rounded-xl border border-slate-200 dark:border-white/10
                     flex items-center justify-center flex-shrink-0
                     group-hover:bg-teal-500/[0.10] group-hover:text-teal-600 dark:group-hover:text-teal-400
                     group-hover:border-teal-500/[0.20] transition-all duration-300 text-base">
@@ -456,7 +456,7 @@ export default async function NicheGeneratorPage({ params }: Props) {
                     <h3 className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">
                       Generate the Code
                     </h3>
-                    <p className="text-slate-500 dark:text-white/40 mt-2 leading-relaxed text-sm">
+                    <p className="text-slate-500 dark:text-slate-400 mt-2 leading-relaxed text-sm">
                       Fill out the tool above with your exact NAP (Name, Address,
                       Phone) details, ensuring they perfectly match your Google
                       Business Profile. Click &ldquo;Copy Code&rdquo;.
@@ -465,13 +465,13 @@ export default async function NicheGeneratorPage({ params }: Props) {
                 </div>
                 <div className="group flex gap-5 items-start
                   bg-white border border-slate-200 shadow-sm
-                  dark:bg-[#0C1018] dark:border-white/[0.07] dark:shadow-none
+                  dark:bg-[#111111] dark:border-white/10 dark:shadow-none
                   p-7 rounded-2xl
                   hover:-translate-y-px hover:border-teal-500/20
                   hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)]
                   transition-all duration-300">
                   <div className="bg-slate-100 text-slate-500 dark:bg-white/[0.05] dark:text-white/60
-                    font-black w-11 h-11 rounded-xl border border-slate-200 dark:border-white/[0.07]
+                    font-black w-11 h-11 rounded-xl border border-slate-200 dark:border-white/10
                     flex items-center justify-center flex-shrink-0
                     group-hover:bg-teal-500/[0.10] group-hover:text-teal-600 dark:group-hover:text-teal-400
                     group-hover:border-teal-500/[0.20] transition-all duration-300 text-base">
@@ -481,9 +481,9 @@ export default async function NicheGeneratorPage({ params }: Props) {
                     <h3 className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">
                       Paste into your Website
                     </h3>
-                    <p className="text-slate-500 dark:text-white/40 mt-2 leading-relaxed text-sm">
+                    <p className="text-slate-500 dark:text-slate-400 mt-2 leading-relaxed text-sm">
                       Insert the copied code into the{" "}
-                      <code className="bg-slate-100 text-slate-700 border border-slate-200 dark:bg-white/[0.06] dark:text-white/70 dark:border-white/[0.08] px-1.5 py-0.5 rounded-md text-sm font-mono">
+                      <code className="bg-slate-100 text-slate-700 border border-slate-200 dark:bg-white/[0.06] dark:text-slate-300 dark:border-white/[0.08] px-1.5 py-0.5 rounded-md text-sm font-mono">
                         &lt;head&gt;
                       </code>{" "}
                       section of your website. If you use WordPress, check out our
@@ -506,14 +506,14 @@ export default async function NicheGeneratorPage({ params }: Props) {
               <h2 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white mb-10 leading-tight">
                 {nicheData.name} SEO FAQ
               </h2>
-              <div className="bg-white dark:bg-[#0C1018] rounded-2xl border border-slate-200 dark:border-white/[0.07] overflow-hidden divide-y divide-slate-100 dark:divide-white/[0.06]">
+              <div className="bg-white dark:bg-[#111111] rounded-2xl border border-slate-200 dark:border-white/10 overflow-hidden divide-y divide-slate-100 dark:divide-white/[0.08]">
 
                 {/* Q1 — unique per niche */}
                 <div className="p-7 hover:bg-slate-50 dark:hover:bg-white/[0.03] transition-colors duration-200">
                   <h3 className="text-base font-bold tracking-tight text-slate-900 dark:text-white mb-3">
                     Why not just use generic LocalBusiness schema?
                   </h3>
-                  <p className="text-slate-500 dark:text-white/40 leading-relaxed text-sm">
+                  <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
                     {nicheData.faqAnswer}
                   </p>
                 </div>
@@ -523,7 +523,7 @@ export default async function NicheGeneratorPage({ params }: Props) {
                   <h3 className="text-base font-bold tracking-tight text-slate-900 dark:text-white mb-3">
                     Can I hide my address if I travel to clients?
                   </h3>
-                  <p className="text-slate-500 dark:text-white/40 leading-relaxed text-sm">
+                  <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
                     Yes. Enable the &ldquo;Service Area Business&rdquo; toggle in the
                     generator above to remove your street address while keeping
                     your city and state — staying 100% compliant with Google&apos;s
@@ -545,7 +545,7 @@ export default async function NicheGeneratorPage({ params }: Props) {
                       How can {nicheData.name.toLowerCase()} businesses rank
                       higher in the Google Map Pack?
                     </h3>
-                    <p className="text-slate-500 dark:text-white/40 leading-relaxed text-sm">
+                    <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
                       {mapPackFaqAnswer}
                     </p>
                   </div>
@@ -573,7 +573,7 @@ export default async function NicheGeneratorPage({ params }: Props) {
                   <h2 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
                     {nicheData.name} Map Pack Strategy
                   </h2>
-                  <p className="text-slate-500 dark:text-white/40 mt-3 max-w-xl leading-relaxed text-sm font-light">
+                  <p className="text-slate-500 dark:text-slate-400 mt-3 max-w-xl leading-relaxed text-sm font-light">
                     Three specific tactics that move{" "}
                     {nicheData.name.toLowerCase()} businesses into the Google
                     local 3-Pack — drawn from how the{" "}
@@ -592,7 +592,7 @@ export default async function NicheGeneratorPage({ params }: Props) {
                     key={index}
                     className="group relative
                       bg-white border border-slate-200 shadow-sm
-                      dark:bg-[#0C1018] dark:border-white/[0.07] dark:shadow-none
+                      dark:bg-[#111111] dark:border-white/10 dark:shadow-none
                       p-7 rounded-2xl
                       hover:-translate-y-px hover:border-teal-500/20
                       hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)]
@@ -609,12 +609,12 @@ export default async function NicheGeneratorPage({ params }: Props) {
                         <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-teal-600 dark:text-teal-400/60 font-mono">
                           Tip {index + 1} of 3
                         </p>
-                        <p className="text-sm font-bold text-slate-700 dark:text-white/70">
+                        <p className="text-sm font-bold text-slate-700 dark:text-slate-300">
                           {tipTitles[index]}
                         </p>
                       </div>
                     </div>
-                    <p className="text-slate-500 dark:text-white/40 leading-relaxed text-sm flex-1">
+                    <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm flex-1">
                       {tip}
                     </p>
                     <div className="mt-5 h-px w-10 rounded-full bg-gradient-to-r from-teal-400 to-cyan-400
@@ -656,7 +656,7 @@ export default async function NicheGeneratorPage({ params }: Props) {
                     Top Google Business Profile Categories for{" "}
                     {nicheData.name} Businesses
                   </h2>
-                  <p className="text-slate-500 dark:text-white/45 leading-relaxed max-w-lg text-sm font-light">
+                  <p className="text-slate-500 dark:text-slate-400 leading-relaxed max-w-lg text-sm font-light">
                     Your GBP primary category is the #1 local ranking factor —
                     more influential than reviews or proximity alone. Use the
                     first category as your primary GBP category, and add the
@@ -743,7 +743,7 @@ export default async function NicheGeneratorPage({ params }: Props) {
               };
               ```
           ---------------------------------------------------------- */}
-          <div className="bg-white dark:bg-[#0C1018] p-8 md:p-12 rounded-2xl border border-slate-200 dark:border-white/[0.07] relative overflow-hidden shadow-sm dark:shadow-none">
+          <div className="bg-white dark:bg-[#111111] p-8 md:p-12 rounded-2xl border border-slate-200 dark:border-white/10 relative overflow-hidden shadow-sm dark:shadow-none">
             <div className="absolute top-0 right-0 w-64 h-64 pointer-events-none
               bg-[radial-gradient(circle_at_top_right,rgba(0,212,200,0.05),transparent_70%)]" />
             <RelatedNiches
