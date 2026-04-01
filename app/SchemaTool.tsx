@@ -95,8 +95,29 @@ interface CustomSelectProps {
 
 function CustomSelect({ id, value, options, onValueChange, placeholder = "Select…" }: CustomSelectProps) {
   const [open, setOpen] = useState(false);
+  const [menuStyle, setMenuStyle] = useState<React.CSSProperties>({});
   const containerRef = useRef<HTMLDivElement>(null);
   const listRef      = useRef<HTMLUListElement>(null);
+
+  // Calculate fixed position relative to trigger so the menu escapes
+  // any overflow:hidden / overflow-y:auto ancestor containers.
+  const calcMenuStyle = useCallback(() => {
+    if (!containerRef.current) return;
+    const r = containerRef.current.getBoundingClientRect();
+    setMenuStyle({ top: r.bottom + 6, left: r.left, width: r.width });
+  }, []);
+
+  // Recalculate on scroll / resize while open
+  useEffect(() => {
+    if (!open) return;
+    calcMenuStyle();
+    window.addEventListener("scroll", calcMenuStyle, true);
+    window.addEventListener("resize", calcMenuStyle);
+    return () => {
+      window.removeEventListener("scroll", calcMenuStyle, true);
+      window.removeEventListener("resize", calcMenuStyle);
+    };
+  }, [open, calcMenuStyle]);
 
   // Close on outside click
   useEffect(() => {
@@ -164,14 +185,14 @@ function CustomSelect({ id, value, options, onValueChange, placeholder = "Select
         </svg>
       </button>
 
-      {/* ── Floating menu ── */}
+      {/* ── Floating menu — fixed-positioned to escape overflow:hidden ancestors ── */}
       {open && (
         <div
-          className="absolute z-50 w-full mt-1.5
-            rounded-xl border shadow-2xl overflow-hidden
+          className="fixed z-[9999] rounded-xl border shadow-2xl overflow-hidden
             bg-white border-slate-200
             dark:bg-[#111111] dark:border-white/10
             dark:shadow-[0_24px_60px_-10px_rgba(0,0,0,0.7)]"
+          style={menuStyle}
         >
           <ul
             ref={listRef}

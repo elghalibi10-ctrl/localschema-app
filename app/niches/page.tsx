@@ -61,7 +61,7 @@ export default function NichesPage() {
       />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-32 pb-24 px-4 border-b
+      <section className="relative overflow-hidden pt-20 pb-16 md:pt-32 md:pb-24 px-4 border-b
         border-slate-200 dark:border-white/[0.08]
         bg-white dark:bg-[#0A0A0A]">
 
@@ -93,7 +93,7 @@ export default function NichesPage() {
             {niches.length}+ Industries Supported
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-[1.05]
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter mb-6 leading-[1.05]
             text-slate-900 dark:text-white">
             Local Business Schema{" "}
             <br className="hidden md:block" />
@@ -118,24 +118,24 @@ export default function NichesPage() {
       </section>
 
       {/* ── MAIN DIRECTORY ────────────────────────────────────────────────── */}
-      <section className="py-32 px-4 relative z-10">
+      <section className="py-14 md:py-24 px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
 
           {/* Popular spotlight */}
           {popularNiches.length > 0 && (
-            <div className="mb-24">
+            <div className="mb-12 md:mb-20">
               <h2 className="text-2xl md:text-3xl font-extrabold tracking-tighter mb-8
                 flex items-center gap-3 text-slate-900 dark:text-white">
                 <span className="drop-shadow-sm">🔥</span> Most Popular Generators
               </h2>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 md:gap-6">
+              <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-5">
                 {popularNiches.map((niche) => (
                   <Link
                     key={niche.id}
                     href={`/generator/${niche.id}`}
-                    className="group flex flex-col items-center justify-center p-8 text-center
-                      rounded-3xl border transition-all duration-300
+                    className="group flex flex-col items-center justify-center p-4 md:p-7 text-center
+                      rounded-2xl border transition-all duration-300
                       bg-white border-slate-200 shadow-sm
                       hover:-translate-y-1 hover:border-teal-400/60 hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)]
                       dark:bg-[#111111] dark:border-white/10 dark:shadow-none
@@ -143,15 +143,15 @@ export default function NichesPage() {
                       focus:outline-none focus:ring-2 focus:ring-teal-500
                       focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-[#0A0A0A]"
                   >
-                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center
-                      text-3xl mb-5 border transition-all duration-300
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center
+                      text-2xl md:text-3xl mb-3 border transition-all duration-300
                       bg-slate-100 border-slate-200
                       group-hover:bg-teal-50 group-hover:border-teal-200 group-hover:scale-110
                       dark:bg-white/[0.04] dark:border-white/[0.06]
                       dark:group-hover:bg-teal-500/[0.10] dark:group-hover:border-teal-500/20">
                       {niche.icon}
                     </div>
-                    <span className="font-bold tracking-tight transition-colors
+                    <span className="font-bold text-sm tracking-tight transition-colors
                       text-slate-900 group-hover:text-teal-600
                       dark:text-white dark:group-hover:text-teal-400">
                       {niche.name}
@@ -169,12 +169,13 @@ export default function NichesPage() {
               All Industry Niches (A–Z)
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
               {niches.map((niche) => (
                 <Link
                   key={niche.id}
                   href={`/generator/${niche.id}`}
-                  className="group flex items-center p-5 rounded-2xl border transition-all duration-300
+                  className="group flex flex-col sm:flex-row items-center sm:items-center
+                    p-3 sm:p-4 rounded-2xl border transition-all duration-300 text-center sm:text-left
                     bg-white border-slate-200 shadow-sm
                     hover:-translate-y-px hover:border-teal-400/60
                     hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)]
@@ -184,22 +185,22 @@ export default function NichesPage() {
                     focus:outline-none focus:ring-2 focus:ring-teal-500
                     focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-[#0A0A0A]"
                 >
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center
-                    text-2xl mr-4 flex-shrink-0 border transition-colors duration-300
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center
+                    text-xl mb-2 sm:mb-0 sm:mr-3 flex-shrink-0 border transition-colors duration-300
                     bg-slate-100 border-slate-200
                     group-hover:bg-teal-50 group-hover:border-teal-200
                     dark:bg-white/[0.04] dark:border-white/[0.06]
                     dark:group-hover:bg-teal-500/[0.08] dark:group-hover:border-teal-500/20">
                     {niche.icon}
                   </div>
-                  <div className="text-left flex-grow overflow-hidden">
-                    <span className="font-bold tracking-tight block truncate transition-colors
+                  <div className="min-w-0 w-full sm:w-auto">
+                    <span className="font-bold text-sm tracking-tight block truncate transition-colors
                       text-slate-900 group-hover:text-teal-600
                       dark:text-white dark:group-hover:text-teal-400">
                       {niche.name}
                     </span>
                     <span
-                      className="text-[11px] font-mono mt-1 block truncate tracking-wide uppercase
+                      className="text-[10px] font-mono mt-0.5 block truncate tracking-wide uppercase
                         text-slate-400 dark:text-slate-500"
                       title={niche.schemaType}
                     >
@@ -212,7 +213,7 @@ export default function NichesPage() {
           </div>
 
           {/* Don't see your niche? */}
-          <div className="mt-24 rounded-[2rem] border p-10 md:p-12 text-center
+          <div className="mt-12 md:mt-20 rounded-[2rem] border p-8 md:p-12 text-center
             max-w-3xl mx-auto relative overflow-hidden
             bg-slate-50 border-slate-200 shadow-sm
             dark:bg-[#111111] dark:border-white/10 dark:shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
@@ -244,7 +245,7 @@ export default function NichesPage() {
       </section>
 
       {/* ── BOTTOM CTA ────────────────────────────────────────────────────── */}
-      <section className="py-32 px-4 relative border-t
+      <section className="py-14 md:py-24 px-4 relative border-t
         bg-slate-50 border-slate-200
         dark:bg-[#0A0A0A] dark:border-white/[0.08]">
         <div className="max-w-5xl mx-auto text-center">
@@ -252,7 +253,7 @@ export default function NichesPage() {
             text-slate-900 dark:text-white">
             Need help adding schema to your site?
           </h2>
-          <p className="mb-16 text-lg md:text-xl font-medium max-w-2xl mx-auto
+          <p className="mb-10 md:mb-14 text-lg md:text-xl font-medium max-w-2xl mx-auto
             text-slate-500 dark:text-slate-400">
             Check out our free, step-by-step guides for implementing your
             generated JSON-LD code correctly to boost your local rankings.

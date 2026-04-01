@@ -109,7 +109,7 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full flex flex-col items-center bg-white dark:bg-[#07090E]">
+    <div className="w-full flex flex-col items-center overflow-x-hidden bg-white dark:bg-[#07090E]">
       {/* Structured data — untouched */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
@@ -118,7 +118,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════════
           §1  HERO SECTION
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full pt-24 pb-0 md:pt-32 px-4 sm:px-6 md:px-8 overflow-hidden z-10">
+      <section className="relative w-full pt-20 pb-0 md:pt-32 px-4 sm:px-6 md:px-8 overflow-hidden z-10">
 
         {/* ── Light mode background: Stripe-style subtle mesh ── */}
         {/* Soft blue radial from top center */}
@@ -163,7 +163,7 @@ export default function Home() {
           </div>
 
           {/* H1 */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[82px]
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[80px]
             font-black tracking-[-0.04em] leading-[1.04] mb-7
             text-slate-900 dark:text-white">
             The Schema Generator<br />
@@ -280,16 +280,16 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════════
           §3  BENTO GRID — 4 FEATURE CARDS
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="w-full py-24 md:py-32 px-4 sm:px-6 md:px-8 relative z-10">
+      <section className="w-full py-16 md:py-28 px-4 sm:px-6 md:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
 
           {/* Section header */}
-          <div className="mb-12 md:mb-16">
+          <div className="mb-10 md:mb-16">
             <p className="font-mono text-[11px] uppercase tracking-[0.16em] mb-4
               text-teal-600 dark:text-teal-400/60">
               Why LocalSchema
             </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-[-0.03em]
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-[-0.03em]
               leading-[1.05] max-w-2xl
               text-slate-900 dark:text-white">
               Built for the{" "}
@@ -517,16 +517,16 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════════
           §4  TOP 8 NICHES GRID
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="w-full py-24 md:py-32 px-4 sm:px-6 md:px-8 relative z-10">
+      <section className="w-full py-16 md:py-28 px-4 sm:px-6 md:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
 
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-12 md:mb-14">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10 md:mb-14">
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.16em] mb-4
                 text-teal-600 dark:text-teal-400/60">
                 Schema Generators
               </p>
-              <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] leading-[1.05]
+              <h2 className="text-3xl md:text-4xl font-black tracking-[-0.03em] leading-[1.05]
                 text-slate-900 dark:text-white">
                 Your Trade.<br />Your Schema.
               </h2>
@@ -698,15 +698,15 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════════
           §6  FAQ SECTION
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="w-full py-24 md:py-32 px-4 sm:px-6 md:px-8 relative z-10">
+      <section className="w-full py-16 md:py-28 px-4 sm:px-6 md:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
 
-          <div className="text-center mb-14 md:mb-20">
+          <div className="text-center mb-10 md:mb-16">
             <p className="font-mono text-[11px] uppercase tracking-[0.16em] mb-4
               text-teal-600 dark:text-teal-400/60">
               Common Questions
             </p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] mb-5
+            <h2 className="text-3xl md:text-4xl font-black tracking-[-0.03em] mb-5
               text-slate-900 dark:text-white">
               Frequently Asked Questions
             </h2>
@@ -818,7 +818,7 @@ export default function Home() {
           </div>
 
           {/* Headline */}
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl
             font-black tracking-[-0.04em] mb-6 leading-[1.04]
             text-slate-900 dark:text-white">
             Your competitor just added<br />
