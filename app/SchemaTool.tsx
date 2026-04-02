@@ -944,6 +944,7 @@ export default function SchemaTool({
                     options={COUNTRY_OPTIONS}
                     onValueChange={(val) => setFormData((prev) => ({ ...prev, country: val }))}
                     placeholder="Select country"
+                    ariaLabel="Select country"
                   />
                 </div>
 
@@ -1046,6 +1047,7 @@ export default function SchemaTool({
               <button
                 type="button"
                 onClick={() => setShowAdvanced(!showAdvanced)}
+                aria-label="Toggle advanced schema settings"
                 className={`w-full flex items-center justify-between px-5 py-4
                   transition-colors duration-200 focus:outline-none group ${
                     showAdvanced
@@ -1261,6 +1263,7 @@ export default function SchemaTool({
               <button
                 onClick={handleCopy}
                 disabled={!canCopy}
+                aria-label="Copy schema code to clipboard"
                 className={`flex-1 flex items-center justify-center gap-2 h-9
                   rounded-lg text-sm font-semibold transition-all duration-300
                   focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50

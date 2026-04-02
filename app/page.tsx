@@ -76,19 +76,6 @@ const FAQ_ITEMS = [
 export default function Home() {
 
   // ── Structured data — untouched ───────────────────────────────────────────
-  const webSiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "LocalSchema",
-    url: "https://www.getlocalschema.com/",
-    description: "Free niche-specific local business schema generator. Generate Google-approved JSON-LD for 52+ industries to boost Google Map Pack rankings.",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: { "@type": "EntryPoint", urlTemplate: "https://www.getlocalschema.com/niches?q={search_term_string}" },
-      "query-input": "required name=search_term_string",
-    },
-  };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -141,8 +128,7 @@ export default function Home() {
 
   return (
     <div className="w-full flex flex-col items-center overflow-x-hidden bg-white dark:bg-[#07090E]">
-      {/* Structured data — untouched */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }} />
+      {/* Structured data */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }} />
