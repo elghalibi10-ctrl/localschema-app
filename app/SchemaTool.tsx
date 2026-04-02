@@ -278,6 +278,7 @@ export default function SchemaTool({
   const [copied,          setCopied]          = useState(false);
   const [jsonString,      setJsonString]      = useState("");
   const [showCopiedModal, setShowCopiedModal] = useState(false);
+  const [showToast,       setShowToast]       = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
   // Theme detection — mounted guard prevents SSR/hydration mismatch
@@ -350,7 +351,9 @@ export default function SchemaTool({
     navigator.clipboard.writeText(scriptTag);
     setCopied(true);
     setShowCopiedModal(true);
+    setShowToast(true);
     setTimeout(() => setCopied(false), 2500);
+    setTimeout(() => setShowToast(false), 3000);
   };
 
   useEffect(() => {
@@ -1202,6 +1205,7 @@ export default function SchemaTool({
 
             {/* Code area — scrollable */}
             <div className="flex-1 overflow-y-auto overflow-x-auto custom-scrollbar min-h-0">
+              {(formData.name !== "" || formData.url !== "") ? (
               <div className="flex min-h-full">
 
                 {/* Line numbers gutter */}
@@ -1252,6 +1256,31 @@ export default function SchemaTool({
                 </div>
 
               </div>
+              ) : (
+                /* Empty state — shown before first form interaction */
+                <div className="flex flex-col items-center justify-center h-full min-h-[240px] gap-4 px-8 py-8">
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center
+                    bg-slate-100 border border-slate-200
+                    dark:bg-white/[0.03] dark:border-white/[0.06]">
+                    <svg className="w-6 h-6 text-slate-300 dark:text-white/20" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                      <path strokeLinecap="round" strokeLinejoin="round"
+                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                      <polyline points="14 2 14 8 20 8" />
+                      <line x1="16" y1="13" x2="8" y2="13" />
+                      <line x1="16" y1="17" x2="8" y2="17" />
+                    </svg>
+                  </div>
+                  <div className="text-center space-y-1.5">
+                    <p className="font-mono text-[13px] text-slate-400 dark:text-white/25">
+                      {"// Fill in your business details"}
+                    </p>
+                    <p className="font-mono text-[13px] text-slate-300 dark:text-white/15">
+                      {"// to generate your schema"}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Action bar footer */}
@@ -1390,7 +1419,32 @@ export default function SchemaTool({
           from { opacity: 0; transform: scale(0.7); }
           to   { opacity: 1; transform: scale(1); }
         }
+
+        @keyframes toastSlideUp {
+          from { opacity: 0; transform: translateX(-50%) translateY(14px); }
+          to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
       `}</style>
+
+      {/* ── Toast notification ────────────────────────────────────────────── */}
+      {showToast && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="fixed bottom-6 left-1/2 z-[9999]
+            flex items-center gap-2.5
+            bg-gray-900 text-white
+            px-4 py-2.5 rounded-lg shadow-xl
+            text-sm font-medium"
+          style={{ animation: "toastSlideUp 0.22s cubic-bezier(0.16,1,0.3,1) both" }}
+        >
+          <svg className="w-4 h-4 text-teal-400 shrink-0" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          Schema code copied to clipboard!
+        </div>
+      )}
 
     </div>
   );
