@@ -32,6 +32,45 @@ body {
   font-family: var(--font-geist-sans, Arial, Helvetica, sans-serif);
 }
 
+/* ── Skip-to-content link (accessibility) ────────────────────────────────── */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  border: 2px solid #6366f1;
+  text-decoration: none;
+  transition: top 0.1s;
+}
+.skip-to-content:focus {
+  top: 0;
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+.dark .skip-to-content {
+  background: #0a0a0a;
+  color: #f8fafc;
+  border-color: #14b8a6;
+}
+.dark .skip-to-content:focus {
+  outline-color: #14b8a6;
+}
+
+/* ── Global :focus-visible ────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+.dark :focus-visible {
+  outline-color: #14b8a6;
+}
+
 /* ── Terminal / SchemaTool custom scrollbar ───────────────────────────────── */
 .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }

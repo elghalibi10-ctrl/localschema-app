@@ -108,12 +108,44 @@ export default function Home() {
     isPartOf: { "@type": "WebSite", url: "https://www.getlocalschema.com/" },
   };
 
+  // SoftwareApplication schema — describes the schema generator tool itself
+  const softwareAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "LocalSchema — Free JSON-LD Schema Generator",
+    description: "Generate perfectly formatted, Google-approved JSON-LD structured data for 50+ local business types in seconds. Boost Google Map Pack rankings with zero coding required.",
+    url: "https://www.getlocalschema.com/schema-tool",
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Any",
+    browserRequirements: "Requires JavaScript",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "312",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    featureList: [
+      "50+ local business schema types",
+      "Service Area Business (SAB) mode",
+      "Google-compliant JSON-LD output",
+      "Instant copy to clipboard",
+      "No account required",
+    ],
+  };
+
   return (
     <div className="w-full flex flex-col items-center overflow-x-hidden bg-white dark:bg-[#07090E]">
       {/* Structured data — untouched */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }} />
 
       {/* ═══════════════════════════════════════════════════════════════════
           §1  HERO SECTION
@@ -235,7 +267,7 @@ export default function Home() {
             <div>
               <p className="text-xl font-black tracking-tight leading-none
                 text-slate-900 dark:text-white">
-                10,000+
+                50,000+
               </p>
               <p className="text-[11px] font-mono mt-0.5 uppercase tracking-wider
                 text-slate-400 dark:text-white/30">

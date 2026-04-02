@@ -134,6 +134,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem={false}
           disableTransitionOnChange
         >
+          {/* Skip-to-content: first focusable element for keyboard/screen-reader users */}
+          <a href="#main-content" className="skip-to-content">
+            Skip to content
+          </a>
+
           <Navbar />
 
           <main className="flex-grow flex flex-col w-full relative z-10" id="main-content">
