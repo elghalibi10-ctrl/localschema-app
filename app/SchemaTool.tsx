@@ -91,9 +91,10 @@ interface CustomSelectProps {
   options: { value: string; label: string }[];
   onValueChange: (value: string) => void;
   placeholder?: string;
+  ariaLabel?: string;
 }
 
-function CustomSelect({ id, value, options, onValueChange, placeholder = "Select…" }: CustomSelectProps) {
+function CustomSelect({ id, value, options, onValueChange, placeholder = "Select…", ariaLabel }: CustomSelectProps) {
   const [open, setOpen] = useState(false);
   const [menuStyle, setMenuStyle] = useState<React.CSSProperties>({});
   const containerRef = useRef<HTMLDivElement>(null);
@@ -164,6 +165,7 @@ function CustomSelect({ id, value, options, onValueChange, placeholder = "Select
         onClick={() => setOpen((o) => !o)}
         aria-haspopup="listbox"
         aria-expanded={open}
+        aria-label={ariaLabel}
         className="w-full flex items-center justify-between gap-2
           h-[52px] px-4 rounded-xl border text-sm text-left shadow-sm
           transition-all duration-200 outline-none
@@ -691,6 +693,7 @@ export default function SchemaTool({
           <div className="flex items-center gap-1.5">
             <button
               onClick={handleClear}
+              aria-label="Clear all form fields"
               className="text-[12px] font-mono px-3 py-1.5 rounded-md transition-colors
                 text-slate-400 hover:text-slate-600 hover:bg-slate-100
                 dark:text-white/25 dark:hover:text-white/50 dark:hover:bg-white/[0.04]"
@@ -699,6 +702,7 @@ export default function SchemaTool({
             </button>
             <button
               onClick={handleLoadExample}
+              aria-label="Load example business data"
               className="flex items-center gap-1.5 text-[12px] font-mono
                 px-3 py-1.5 rounded-md border transition-all duration-150
                 text-teal-600 hover:text-teal-700
@@ -772,6 +776,7 @@ export default function SchemaTool({
                     options={SCHEMA_OPTIONS}
                     onValueChange={(val) => setFormData((prev) => ({ ...prev, type: val }))}
                     placeholder="Select type"
+                    ariaLabel="Select business type"
                   />
                 </div>
 
