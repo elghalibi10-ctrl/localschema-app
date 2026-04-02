@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import SchemaTool from "./SchemaTool";
 import FeaturesSection from "@/components/FeaturesSection";
+import StatsBar from "@/components/StatsBar";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // METADATA — untouched
@@ -418,75 +419,9 @@ export default function Home() {
 
 
       {/* ═══════════════════════════════════════════════════════════════════
-          §2  TRUST COUNTER STRIP
+          §2  STATS BAR
       ═══════════════════════════════════════════════════════════════════ */}
-      <section
-        aria-label="Social proof"
-        className="w-full py-12 px-4 sm:px-6 md:px-8 relative z-10
-          border-y
-          bg-slate-50 border-slate-200
-          dark:bg-[#0a0c12] dark:border-white/[0.06]"
-      >
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center
-          justify-center gap-6 sm:gap-10 md:gap-16">
-
-          {/* Stat: businesses */}
-          <div className="flex items-center gap-3">
-            <div className="flex -space-x-1.5">
-              {["bg-teal-500","bg-sky-500","bg-purple-500","bg-emerald-500"].map((c, i) => (
-                <div key={i} className={`w-7 h-7 rounded-full ${c}
-                  border-2 border-slate-50 dark:border-[#0a0c12]
-                  flex items-center justify-center`}>
-                  <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
-                  </svg>
-                </div>
-              ))}
-            </div>
-            <div>
-              <p className="text-xl font-black tracking-tight leading-none
-                text-slate-900 dark:text-white">
-                50,000+
-              </p>
-              <p className="text-[11px] font-mono mt-0.5 uppercase tracking-wider
-                text-slate-400 dark:text-white/30">
-                businesses &amp; agencies
-              </p>
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="hidden sm:block w-px h-10 bg-slate-200 dark:bg-white/[0.08]" />
-
-          {/* Central message */}
-          <p className="text-sm leading-relaxed text-center sm:text-left max-w-xs
-            text-slate-500 dark:text-white/40">
-            Trusted by local businesses and SEO agencies to generate Map Pack-ready
-            structured data — completely free, no account required.
-          </p>
-
-          {/* Divider */}
-          <div className="hidden sm:block w-px h-10 bg-slate-200 dark:bg-white/[0.08]" />
-
-          {/* Trust pills */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {[
-              { icon: "✓", label: "Google Compliant" },
-              { icon: "✓", label: "Zero Sign-up" },
-              { icon: "✓", label: "52+ Niches" },
-            ].map((pill) => (
-              <span key={pill.label}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px]
-                  font-semibold font-mono uppercase tracking-wide
-                  bg-teal-500/[0.08] border border-teal-500/[0.20] text-teal-600
-                  dark:bg-teal-500/[0.07] dark:border-teal-500/[0.18] dark:text-teal-400/70">
-                <span className="font-bold text-teal-500 dark:text-teal-400">{pill.icon}</span>
-                {pill.label}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StatsBar />
 
 
       {/* ═══════════════════════════════════════════════════════════════════
