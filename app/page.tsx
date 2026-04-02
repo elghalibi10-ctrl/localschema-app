@@ -120,13 +120,14 @@ export default function Home() {
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative w-full pt-20 pb-0 md:pt-32 px-4 sm:px-6 md:px-8 overflow-hidden z-10">
 
-        {/* ── Light mode background: Stripe-style subtle mesh ── */}
-        {/* Soft blue radial from top center */}
+        {/* ── Light mode background: premium indigo-tinted gradient ── */}
+        {/* Top radial indigo wash — Stripe-style */}
         <div className="absolute inset-0 z-0 pointer-events-none dark:hidden
-          bg-[radial-gradient(ellipse_80%_55%_at_50%_-10%,rgba(14,165,233,0.07),transparent)]" />
-        {/* Fine dot grid */}
+          bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
+          from-indigo-50 via-white to-white" />
+        {/* Fine dot grid overlay */}
         <div className="absolute inset-0 z-0 pointer-events-none dark:hidden
-          bg-[radial-gradient(circle,rgba(100,116,139,0.12)_1px,transparent_1px)]
+          bg-[radial-gradient(circle,rgba(99,102,241,0.10)_1px,transparent_1px)]
           bg-[size:28px_28px]
           [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,black_30%,transparent_100%)]" />
         {/* Bottom fade to white */}
@@ -178,7 +179,7 @@ export default function Home() {
 
           {/* Sub-copy */}
           <p className="text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-light
-            text-slate-500 dark:text-white/40">
+            text-slate-600 dark:text-white/40">
             Stop losing the Google Map Pack to competitors with better structured data.
             Generate valid, niche-specific JSON-LD for your{" "}
             <Link href="/niches"
@@ -192,7 +193,7 @@ export default function Home() {
         </div>
 
         {/* SchemaTool wrapper */}
-        <div id="generator" className="relative z-20 max-w-7xl mx-auto w-full">
+        <div id="generator" className="relative z-20 max-w-7xl mx-auto w-full mt-8 md:mt-14">
           <div className="relative rounded-2xl p-px
             bg-gradient-to-br from-teal-500/30 via-sky-500/10 to-purple-500/20
             shadow-[0_0_80px_-20px_rgba(0,212,200,0.18),0_0_0_1px_rgba(255,255,255,0.03)]
@@ -301,7 +302,7 @@ export default function Home() {
               ,<br />not the tag cloud.
             </h2>
             <p className="mt-5 text-lg max-w-xl leading-relaxed font-light
-              text-slate-500 dark:text-white/35">
+              text-slate-600 dark:text-white/35">
               Generic schema generators output{" "}
               <code className="font-mono text-sm
                 text-slate-600 bg-slate-100 border-slate-200
